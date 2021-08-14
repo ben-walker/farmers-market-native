@@ -3,9 +3,11 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import { graphqlUri } from "./src/env";
+
 const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "",
+  uri: graphqlUri,
 });
 
 const App = (): JSX.Element => (
