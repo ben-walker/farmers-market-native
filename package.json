@@ -1,4 +1,11 @@
 {
+  "name": "farmers-market-native",
+  "description": "Farmers' market native app",
+  "repository": "github:ben-walker/farmers-market-native",
+  "license": "BSD-3-Clause",
+  "engines": {
+    "node": "16"
+  },
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -8,6 +15,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@apollo/client": "^3.4.7",
     "expo": "~42.0.1",
     "expo-status-bar": "~1.0.4",
     "react": "16.13.1",
@@ -20,6 +28,5 @@
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
     "typescript": "~4.0.0"
-  },
-  "private": true
+  }
 }
