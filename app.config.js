@@ -4,6 +4,9 @@ export default {
   version: "1.0.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
+  extra: {
+    graphqlUri: process.env.GRAPHQL_URL || "http://localhost:4000/graphql",
+  },
   splash: {
     image: "./assets/splash.png",
     resizeMode: "contain",
