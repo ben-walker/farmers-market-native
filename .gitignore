@@ -1,6 +1,8 @@
-node_modules/
+# Dependencies
+node_modules
+
+# Expo
 .expo/
-npm-debug.*
 *.jks
 *.p8
 *.p12
@@ -9,5 +11,20 @@ npm-debug.*
 *.orig.*
 web-build/
 
-# macOS
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
 .DS_Store
+*.pem
+
+# Environment
+*.env*
+
+# IDE - VSCode
+.vscode
