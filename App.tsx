@@ -3,7 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-import { graphqlUri } from "./src/env";
+import { graphqlUri } from "./src/constants";
 
 const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
