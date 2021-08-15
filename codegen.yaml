@@ -1,0 +1,14 @@
+schema: ${SCHEMA_PATH:http://localhost:4000/graphql}
+watch: ${CODEGEN_WATCH:false}
+# documents: src/**/*.graphql # TODO: Uncomment when there are graphql documents
+generates:
+  node_modules/@generated/graphql-codegen/index.tsx:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+      - fragment-matcher
+
+  node_modules/@generated/graphql-codegen/graphql.schema.json:
+    plugins:
+      - introspection
