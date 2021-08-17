@@ -1,6 +1,6 @@
 {
   "name": "farmers-market-native",
-  "description": "Farmers' market native app",
+  "description": "Farmers market native app",
   "repository": "github:ben-walker/farmers-market-native",
   "license": "BSD-3-Clause",
   "engines": {
