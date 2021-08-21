@@ -26,6 +26,13 @@ rules:
   simple-import-sort/imports: "error"
   simple-import-sort/exports: "error"
   sort-imports: "off"
+  no-restricted-imports:
+    - error
+    - paths:
+        - name: styled-components
+          message: Import from styled-components/native.
+      patterns:
+        - "!styled-components/native"
 
 settings:
   react:
