@@ -13,13 +13,15 @@ const Container = styled.View`
   justify-content: center;
 `;
 
-const App = (): JSX.Element => (
-  <ApolloProvider client={apolloClient}>
-    <Container>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </Container>
-  </ApolloProvider>
-);
+const App = (): JSX.Element => {
+  return (
+    <ApolloProvider client={apolloClient}>
+      <Container>
+        <Text>Open up App.tsx to start working on your app!</Text>
+        <StatusBar style="auto" />
+      </Container>
+    </ApolloProvider>
+  );
+};
 
 export default App;
