@@ -8,15 +8,15 @@
   },
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
     "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
+    "codegen": "graphql-codegen --config codegen.yaml",
+    "codegen:watch": "CODEGEN_WATCH=true npm run codegen",
     "eject": "expo eject",
+    "ios": "expo start --ios",
     "lint": "eslint . --ext .tsx,.ts,.js",
+    "start": "expo start",
     "typecheck": "tsc --noEmit",
-    "generate:graphql": "graphql-codegen --config codegen.yaml",
-    "watch:graphql": "CODEGEN_WATCH=true npm run generate:graphql"
+    "web": "expo start --web"
   },
   "dependencies": {
     "@apollo/client": "^3.4.7",
