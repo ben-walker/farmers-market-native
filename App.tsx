@@ -1,10 +1,9 @@
-import { ApolloProvider } from "@apollo/client";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Text } from "react-native";
 import styled from "styled-components/native";
 
-import { apolloClient } from "./src/apollo";
+import { Providers } from "./src/features/providers";
 
 const Container = styled.View`
   align-items: center;
@@ -13,15 +12,13 @@ const Container = styled.View`
   justify-content: center;
 `;
 
-const App = (): JSX.Element => {
-  return (
-    <ApolloProvider client={apolloClient}>
-      <Container>
-        <Text>Open up App.tsx to start working on your app!</Text>
-        <StatusBar style="auto" />
-      </Container>
-    </ApolloProvider>
-  );
-};
+const App = (): JSX.Element => (
+  <Providers>
+    <Container>
+      <Text>Open up App.tsx to start working on your app!</Text>
+      <StatusBar style="auto" />
+    </Container>
+  </Providers>
+);
 
 export default App;
