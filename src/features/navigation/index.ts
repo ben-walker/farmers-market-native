@@ -1,2 +1,1 @@
-export { BottomTabsParamList } from "./BottomTabs";
-export { Routes } from "./Routes";
+export * from "./Routes";
