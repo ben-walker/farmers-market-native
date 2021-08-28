@@ -1,6 +1,7 @@
 import { ApolloProvider } from "@apollo/client";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { apolloClient } from "./apollo";
 
@@ -10,6 +11,8 @@ type ProvidersProps = {
 
 export const Providers = ({ children }: ProvidersProps): JSX.Element => (
   <ApolloProvider client={apolloClient}>
-    <NavigationContainer>{children}</NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>{children}</NavigationContainer>
+    </SafeAreaProvider>
   </ApolloProvider>
 );
