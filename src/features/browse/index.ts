@@ -1,1 +1,2 @@
-export * from "./Browse";
+export * from "./BrowseStack";
+export * from "./types";

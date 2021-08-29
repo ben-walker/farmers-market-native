@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 
-import { Browse } from "../browse";
+import { BrowseStack } from "../browse";
 import { Profile } from "../profile";
 import { BottomTabsParamList, TabBarIconMap } from "./types";
 
@@ -23,7 +23,7 @@ export const BottomTabs = (): JSX.Element => (
       },
     })}
   >
-    <Tab.Screen name="Browse" component={Browse} />
+    <Tab.Screen name="Browse" component={BrowseStack} />
     <Tab.Screen name="Profile" component={Profile} />
   </Tab.Navigator>
 );
