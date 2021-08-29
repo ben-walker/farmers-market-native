@@ -1,0 +1,7 @@
+query Shops {
+  shops {
+    createdAt
+    id
+    name
+  }
+}
