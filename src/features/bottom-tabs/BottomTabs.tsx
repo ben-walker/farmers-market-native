@@ -4,31 +4,21 @@ import React from "react";
 
 import { Browse } from "../browse";
 import { Profile } from "../profile";
-
-export type BottomTabsParamList = {
-  Browse: undefined;
-  Profile: undefined;
-};
+import { BottomTabsParamList, TabBarIconMap } from "./types";
 
 const Tab = createBottomTabNavigator<BottomTabsParamList>();
+
+const tabBarIconMap: TabBarIconMap = {
+  Browse: "albums",
+  Profile: "person-circle",
+};
 
 export const BottomTabs = (): JSX.Element => (
   <Tab.Navigator
     initialRouteName="Browse"
     screenOptions={({ route }) => ({
       tabBarIcon: function icon({ color, size }) {
-        let iconName: keyof typeof Ionicons.glyphMap;
-
-        switch (route.name) {
-          case "Browse":
-            iconName = "albums";
-            break;
-
-          case "Profile":
-            iconName = "person-circle";
-            break;
-        }
-
+        const iconName = tabBarIconMap[route.name];
         return <Ionicons name={iconName} color={color} size={size} />;
       },
     })}
