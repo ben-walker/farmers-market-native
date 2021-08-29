@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 
 import { BrowseStack } from "../browse";
-import { Profile } from "../profile";
+import { ProfileStack } from "../profile";
 import { BottomTabsParamList, TabBarIconMap } from "./types";
 
 const Tab = createBottomTabNavigator<BottomTabsParamList>();
@@ -24,6 +24,6 @@ export const BottomTabs = (): JSX.Element => (
     })}
   >
     <Tab.Screen name="Browse" component={BrowseStack} />
-    <Tab.Screen name="Profile" component={Profile} />
+    <Tab.Screen name="Profile" component={ProfileStack} />
   </Tab.Navigator>
 );
