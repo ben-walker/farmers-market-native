@@ -1,7 +1,8 @@
-import { useShopsQuery } from "@generated/graphql-codegen";
 import React from "react";
 import { FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+import { useShopsQuery } from "../../graphql-codegen";
 
 export const ShopFeed = (): JSX.Element => {
   const shopsResult = useShopsQuery();
