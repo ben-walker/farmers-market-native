@@ -40,3 +40,4 @@ settings:
 
 ignorePatterns:
   - babel.config.js
+  - graphql-codegen
