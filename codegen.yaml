@@ -2,13 +2,13 @@ schema: ${CODEGEN_SCHEMA:http://localhost:4000/graphql}
 watch: ${CODEGEN_WATCH:false}
 documents: src/**/*.gql
 generates:
-  node_modules/@generated/graphql-codegen/index.tsx:
+  src/graphql-codegen/index.tsx:
     plugins:
       - typescript
       - typescript-operations
       - typescript-react-apollo
       - fragment-matcher
 
-  node_modules/@generated/graphql-codegen/graphql.schema.json:
+  src/graphql-codegen/graphql.schema.json:
     plugins:
       - introspection
