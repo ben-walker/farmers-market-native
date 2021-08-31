@@ -8,6 +8,10 @@ const Stack = createNativeStackNavigator<ProfileStackParamList>();
 
 export const ProfileStack = (): JSX.Element => (
   <Stack.Navigator initialRouteName="ProfileOverview">
-    <Stack.Screen name="ProfileOverview" component={ProfileOverview} />
+    <Stack.Screen
+      name="ProfileOverview"
+      component={ProfileOverview}
+      options={{ title: "Profile" }}
+    />
   </Stack.Navigator>
 );

@@ -17,6 +17,7 @@ export const BottomTabs = (): JSX.Element => (
   <Tab.Navigator
     initialRouteName="Browse"
     screenOptions={({ route }) => ({
+      headerShown: false,
       tabBarIcon: function icon({ color, size }) {
         const iconName = tabBarIconMap[route.name];
         return <Ionicons name={iconName} color={color} size={size} />;
