@@ -1,6 +1,5 @@
 import React from "react";
-import { FlatList } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { FlatList, View } from "react-native";
 
 import { useShopsQuery } from "../../graphql-codegen";
 
@@ -10,12 +9,12 @@ export const ShopFeed = (): JSX.Element => {
   const renderItem = () => <></>;
 
   return (
-    <SafeAreaView>
+    <View>
       <FlatList
         data={shopsResult.data?.shops}
         renderItem={renderItem}
         keyExtractor={(shop) => shop.id}
       />
-    </SafeAreaView>
+    </View>
   );
 };
