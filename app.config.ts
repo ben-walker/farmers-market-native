@@ -7,6 +7,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   version: "1.0.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
+  userInterfaceStyle: "automatic",
   extra: {
     graphqlUri: process.env.GRAPHQL_URI || "http://localhost:4000/graphql",
   },
