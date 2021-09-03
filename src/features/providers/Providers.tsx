@@ -9,7 +9,7 @@ type ProvidersProps = {
   children: React.ReactNode;
 };
 
-export const Providers = ({ children }: ProvidersProps): JSX.Element => (
+export const Providers: React.FC<ProvidersProps> = ({ children }) => (
   <ApolloProvider client={apolloClient}>
     <SafeAreaProvider>
       <NavigationContainer>{children}</NavigationContainer>

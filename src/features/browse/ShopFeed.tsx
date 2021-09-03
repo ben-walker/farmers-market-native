@@ -3,7 +3,7 @@ import { FlatList, View } from "react-native";
 
 import { useShopsQuery } from "../../graphql-codegen";
 
-export const ShopFeed = (): JSX.Element => {
+export const ShopFeed: React.FC = () => {
   const shopsResult = useShopsQuery();
 
   const renderItem = () => <></>;

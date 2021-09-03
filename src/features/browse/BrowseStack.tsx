@@ -6,7 +6,7 @@ import { BrowseStackParamList } from "./types";
 
 const Stack = createNativeStackNavigator<BrowseStackParamList>();
 
-export const BrowseStack = (): JSX.Element => (
+export const BrowseStack: React.FC = () => (
   <Stack.Navigator initialRouteName="ShopFeed">
     <Stack.Screen
       name="ShopFeed"

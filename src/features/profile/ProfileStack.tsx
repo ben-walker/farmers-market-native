@@ -6,7 +6,7 @@ import { ProfileStackParamList } from "./types";
 
 const Stack = createNativeStackNavigator<ProfileStackParamList>();
 
-export const ProfileStack = (): JSX.Element => (
+export const ProfileStack: React.FC = () => (
   <Stack.Navigator initialRouteName="ProfileOverview">
     <Stack.Screen
       name="ProfileOverview"

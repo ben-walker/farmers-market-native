@@ -8,7 +8,7 @@ import { getTabBarIcon } from "./utils/tab-icons";
 
 const Tab = createBottomTabNavigator<BottomTabsParamList>();
 
-export const BottomTabs = (): JSX.Element => (
+export const BottomTabs: React.FC = () => (
   <Tab.Navigator
     initialRouteName="Browse"
     screenOptions={({ route }) => ({

@@ -1,3 +1,3 @@
 import React from "react";
 
-export const ProfileOverview = (): JSX.Element => <></>;
+export const ProfileOverview: React.FC = () => <></>;
