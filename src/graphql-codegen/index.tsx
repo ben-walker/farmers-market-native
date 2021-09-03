@@ -13,7 +13,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   /** The javascript `Date` as string. Type represents date and time as the ISO Date string. */
-  DateTime: Date;
+  DateTime: string;
 };
 
 export type AggregateProduct = {
@@ -719,7 +719,7 @@ export type UserWhereUniqueInput = {
 export type GetShopFeedQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetShopFeedQuery = { __typename?: 'Query', shops: Array<{ __typename?: 'Shop', createdAt: Date, id: string, name: string }> };
+export type GetShopFeedQuery = { __typename?: 'Query', shops: Array<{ __typename?: 'Shop', createdAt: string, id: string, name: string }> };
 
 
 export const GetShopFeedDocument = gql`
