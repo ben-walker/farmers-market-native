@@ -716,14 +716,14 @@ export type UserWhereUniqueInput = {
   id?: Maybe<Scalars['String']>;
 };
 
-export type ShopsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetShopFeedQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ShopsQuery = { __typename?: 'Query', shops: Array<{ __typename?: 'Shop', createdAt: any, id: string, name: string }> };
+export type GetShopFeedQuery = { __typename?: 'Query', shops: Array<{ __typename?: 'Shop', createdAt: any, id: string, name: string }> };
 
 
-export const ShopsDocument = gql`
-    query Shops {
+export const GetShopFeedDocument = gql`
+    query GetShopFeed {
   shops {
     createdAt
     id
@@ -733,31 +733,31 @@ export const ShopsDocument = gql`
     `;
 
 /**
- * __useShopsQuery__
+ * __useGetShopFeedQuery__
  *
- * To run a query within a React component, call `useShopsQuery` and pass it any options that fit your needs.
- * When your component renders, `useShopsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetShopFeedQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetShopFeedQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useShopsQuery({
+ * const { data, loading, error } = useGetShopFeedQuery({
  *   variables: {
  *   },
  * });
  */
-export function useShopsQuery(baseOptions?: Apollo.QueryHookOptions<ShopsQuery, ShopsQueryVariables>) {
+export function useGetShopFeedQuery(baseOptions?: Apollo.QueryHookOptions<GetShopFeedQuery, GetShopFeedQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ShopsQuery, ShopsQueryVariables>(ShopsDocument, options);
+        return Apollo.useQuery<GetShopFeedQuery, GetShopFeedQueryVariables>(GetShopFeedDocument, options);
       }
-export function useShopsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ShopsQuery, ShopsQueryVariables>) {
+export function useGetShopFeedLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetShopFeedQuery, GetShopFeedQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ShopsQuery, ShopsQueryVariables>(ShopsDocument, options);
+          return Apollo.useLazyQuery<GetShopFeedQuery, GetShopFeedQueryVariables>(GetShopFeedDocument, options);
         }
-export type ShopsQueryHookResult = ReturnType<typeof useShopsQuery>;
-export type ShopsLazyQueryHookResult = ReturnType<typeof useShopsLazyQuery>;
-export type ShopsQueryResult = Apollo.QueryResult<ShopsQuery, ShopsQueryVariables>;
+export type GetShopFeedQueryHookResult = ReturnType<typeof useGetShopFeedQuery>;
+export type GetShopFeedLazyQueryHookResult = ReturnType<typeof useGetShopFeedLazyQuery>;
+export type GetShopFeedQueryResult = Apollo.QueryResult<GetShopFeedQuery, GetShopFeedQueryVariables>;
 
       export interface PossibleTypesResultData {
         possibleTypes: {

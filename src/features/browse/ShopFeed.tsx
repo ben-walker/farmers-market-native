@@ -1,19 +1,25 @@
 import React from "react";
-import { FlatList, View } from "react-native";
+import { FlatList, ListRenderItem, View } from "react-native";
 
-import { useShopsQuery } from "../../graphql-codegen";
+import { useGetShopFeedQuery } from "../../graphql-codegen";
+import { ShopFeedItem } from "./ShopFeedItem";
+import { ShopFeedQueryItem } from "./types";
 
 export const ShopFeed: React.FC = () => {
-  const shopsResult = useShopsQuery();
+  const feedResult = useGetShopFeedQuery();
 
-  const renderItem = () => <></>;
+  const renderItem: ListRenderItem<ShopFeedQueryItem> = ({ item }) => (
+    <ShopFeedItem shop={item} />
+  );
+
+  const keyExtractor = (shop: ShopFeedQueryItem) => shop.id;
 
   return (
     <View>
       <FlatList
-        data={shopsResult.data?.shops}
+        data={feedResult.data?.shops}
         renderItem={renderItem}
-        keyExtractor={(shop) => shop.id}
+        keyExtractor={keyExtractor}
       />
     </View>
   );

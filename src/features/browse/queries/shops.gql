@@ -1,4 +1,4 @@
-query Shops {
+query GetShopFeed {
   shops {
     createdAt
     id
