@@ -37,7 +37,6 @@ export type AggregateUser = {
   _max?: Maybe<UserMaxAggregate>;
 };
 
-
 export type DateTimeFilter = {
   equals?: Maybe<Scalars['DateTime']>;
   in?: Maybe<Array<Scalars['DateTime']>>;
