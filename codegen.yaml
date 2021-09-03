@@ -1,6 +1,11 @@
 schema: ${CODEGEN_SCHEMA:http://localhost:4000/graphql}
 watch: ${CODEGEN_WATCH:false}
 documents: src/**/*.gql
+
+config:
+  scalars:
+    DateTime: Date
+
 generates:
   src/graphql-codegen/index.tsx:
     plugins:
