@@ -17,7 +17,7 @@ type ProvidersProps = {
 export const Providers: React.FC<ProvidersProps> = ({ children }) => {
   const colorScheme = useColorScheme();
 
-  const theme = useMemo(
+  const navigationTheme = useMemo(
     () => (colorScheme === "dark" ? DarkTheme : DefaultTheme),
     [colorScheme]
   );
@@ -25,7 +25,9 @@ export const Providers: React.FC<ProvidersProps> = ({ children }) => {
   return (
     <ApolloProvider client={apolloClient}>
       <SafeAreaProvider>
-        <NavigationContainer theme={theme}>{children}</NavigationContainer>
+        <NavigationContainer theme={navigationTheme}>
+          {children}
+        </NavigationContainer>
       </SafeAreaProvider>
     </ApolloProvider>
   );
