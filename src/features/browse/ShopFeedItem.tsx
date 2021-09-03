@@ -1,4 +1,4 @@
-import { getYear } from "date-fns";
+import { format } from "date-fns";
 import React, { useMemo } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
@@ -11,8 +11,8 @@ type ShopFeedItemProps = {
 export const ShopFeedItem: React.FC<ShopFeedItemProps> = ({ shop }) => {
   const established = useMemo(() => {
     const createdAt = new Date(shop.createdAt);
-    const year = getYear(createdAt);
-    return `Established ${year}`;
+    const date = format(createdAt, "yyyy");
+    return `Established ${date}`;
   }, [shop.createdAt]);
 
   return (
