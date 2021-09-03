@@ -1,11 +1,14 @@
-export default {
+import { ConfigContext, ExpoConfig } from "@expo/config";
+
+export default ({ config }: ConfigContext): ExpoConfig => ({
+  ...config,
   name: "farmers-market-native",
   slug: "farmers-market-native",
   version: "1.0.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
   extra: {
-    graphqlUri: process.env.GRAPHQL_URL || "http://localhost:4000/graphql",
+    graphqlUri: process.env.GRAPHQL_URI || "http://localhost:4000/graphql",
   },
   splash: {
     image: "./assets/splash.png",
@@ -28,4 +31,4 @@ export default {
   web: {
     favicon: "./assets/favicon.png",
   },
-};
+});
