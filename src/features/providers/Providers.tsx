@@ -7,8 +7,10 @@ import {
 import React, { useMemo } from "react";
 import { useColorScheme } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { ThemeProvider } from "styled-components/native";
 
 import { apolloClient } from "./apollo";
+import { useStyledTheme } from "./styled-components";
 
 type ProvidersProps = {
   children: React.ReactNode;
@@ -22,11 +24,13 @@ export const Providers: React.FC<ProvidersProps> = ({ children }) => {
     [colorScheme]
   );
 
+  const styledTheme = useStyledTheme();
+
   return (
     <ApolloProvider client={apolloClient}>
       <SafeAreaProvider>
         <NavigationContainer theme={navigationTheme}>
-          {children}
+          <ThemeProvider theme={styledTheme}>{children}</ThemeProvider>
         </NavigationContainer>
       </SafeAreaProvider>
     </ApolloProvider>
