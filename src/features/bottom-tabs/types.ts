@@ -1,8 +1,8 @@
 import { RouteProp } from "@react-navigation/native";
 
 export type BottomTabsParamList = {
-  Browse: undefined;
-  Profile: undefined;
+  BrowseStack: undefined;
+  ProfileStack: undefined;
 };
 
 export type BottomTabsRouteProp = RouteProp<

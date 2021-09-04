@@ -9,8 +9,8 @@ type TabBarIconMap = {
 };
 
 const tabBarIconMap: TabBarIconMap = {
-  Browse: "albums",
-  Profile: "person-circle",
+  BrowseStack: "albums",
+  ProfileStack: "person-circle",
 };
 
 export const getTabBarIcon = (

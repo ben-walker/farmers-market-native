@@ -10,13 +10,21 @@ const Tab = createBottomTabNavigator<BottomTabsParamList>();
 
 export const BottomTabs: React.FC = () => (
   <Tab.Navigator
-    initialRouteName="Browse"
+    initialRouteName="BrowseStack"
     screenOptions={({ route }) => ({
       headerShown: false,
       tabBarIcon: getTabBarIcon(route),
     })}
   >
-    <Tab.Screen name="Browse" component={BrowseStack} />
-    <Tab.Screen name="Profile" component={ProfileStack} />
+    <Tab.Screen
+      name="BrowseStack"
+      options={{ title: "Browse" }}
+      component={BrowseStack}
+    />
+    <Tab.Screen
+      name="ProfileStack"
+      options={{ title: "Profile" }}
+      component={ProfileStack}
+    />
   </Tab.Navigator>
 );

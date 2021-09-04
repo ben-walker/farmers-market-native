@@ -2,6 +2,6 @@ import React from "react";
 
 import { ScreenContainer } from "../components";
 
-export const ProfileOverview: React.FC = () => (
+export const ProfileScreen: React.FC = () => (
   <ScreenContainer></ScreenContainer>
 );

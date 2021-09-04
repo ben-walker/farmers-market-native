@@ -6,7 +6,7 @@ import { ScreenContainer } from "../components";
 import { ShopFeedItem } from "./ShopFeedItem";
 import { ShopFeedQueryItem } from "./types";
 
-export const ShopFeed: React.FC = () => {
+export const ShopFeedScreen: React.FC = () => {
   const shopFeedResult = useGetShopFeedQuery();
 
   const renderItem: ListRenderItem<ShopFeedQueryItem> = ({ item }) => (
