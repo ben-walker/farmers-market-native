@@ -1,20 +1,18 @@
-import { Theme, useTheme } from "@react-navigation/native";
+import { Theme } from "@react-navigation/native";
 import { DefaultTheme } from "styled-components/native";
+
+type ThemeColors = Theme["colors"];
 
 declare module "styled-components" {
   export interface DefaultTheme {
     colors: {
-      [P in keyof Theme["colors"]]: string;
+      [P in keyof ThemeColors]: string;
     };
   }
 }
 
-export const useStyledTheme = (): DefaultTheme => {
-  const { colors: baseColors } = useTheme();
-
-  return {
-    colors: {
-      ...baseColors,
-    },
-  };
-};
+export const getTheme = (baseColors: ThemeColors): DefaultTheme => ({
+  colors: {
+    ...baseColors,
+  },
+});

@@ -10,7 +10,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ThemeProvider } from "styled-components/native";
 
 import { apolloClient } from "./apollo";
-import { useStyledTheme } from "./styled-components";
+import { getTheme } from "./styled-components";
 
 type ProvidersProps = {
   children: React.ReactNode;
@@ -24,7 +24,10 @@ export const Providers: React.FC<ProvidersProps> = ({ children }) => {
     [colorScheme]
   );
 
-  const styledTheme = useStyledTheme();
+  const styledTheme = useMemo(
+    () => getTheme(navigationTheme.colors),
+    [navigationTheme.colors]
+  );
 
   return (
     <ApolloProvider client={apolloClient}>
