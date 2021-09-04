@@ -1,12 +1,19 @@
 import { format } from "date-fns";
 import React, { useMemo } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text } from "react-native";
+import styled from "styled-components/native";
 
 import { ShopFeedQueryItem } from "./types";
 
 type ShopFeedItemProps = {
   shop: ShopFeedQueryItem;
 };
+
+const TouchableContainer = styled.TouchableOpacity`
+  background-color: ${({ theme }) => theme.colors.card};
+  margin: 10px;
+  padding: 10px;
+`;
 
 export const ShopFeedItem: React.FC<ShopFeedItemProps> = ({ shop }) => {
   const established = useMemo(() => {
@@ -16,11 +23,9 @@ export const ShopFeedItem: React.FC<ShopFeedItemProps> = ({ shop }) => {
   }, [shop.createdAt]);
 
   return (
-    <TouchableOpacity>
-      <View>
-        <Text>{shop.name}</Text>
-        <Text>{established}</Text>
-      </View>
-    </TouchableOpacity>
+    <TouchableContainer>
+      <Text>{shop.name}</Text>
+      <Text>{established}</Text>
+    </TouchableContainer>
   );
 };
