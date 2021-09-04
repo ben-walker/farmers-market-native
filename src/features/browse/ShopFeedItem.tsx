@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { format } from "date-fns";
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import styled from "styled-components/native";
 
 import { Body } from "../components";
@@ -26,7 +26,10 @@ export const ShopFeedItem: React.FC<ShopFeedItemProps> = ({ shop }) => {
     return `Established ${date}`;
   }, [shop.createdAt]);
 
-  const navigateToShop = () => navigation.navigate("Shop");
+  const navigateToShop = useCallback(
+    () => navigation.navigate("Shop", { id: shop.id, name: shop.name }),
+    [navigation, shop.id, shop.name]
+  );
 
   return (
     <TouchableContainer onPress={navigateToShop}>

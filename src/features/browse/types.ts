@@ -5,7 +5,10 @@ import { GetShopFeedQuery } from "../../graphql-codegen";
 
 export type BrowseStackParamList = {
   ShopFeed: undefined;
-  Shop: undefined;
+  Shop: {
+    id: string;
+    name: string;
+  };
 };
 
 export type ShopFeedQueryItem = GetShopFeedQuery["shops"][0];

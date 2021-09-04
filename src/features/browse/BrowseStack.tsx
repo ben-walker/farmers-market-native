@@ -14,6 +14,10 @@ export const BrowseStack: React.FC = () => (
       component={ShopFeedScreen}
       options={{ title: "Local Shops" }}
     />
-    <Stack.Screen name="Shop" component={ShopScreen} />
+    <Stack.Screen
+      name="Shop"
+      component={ShopScreen}
+      options={({ route }) => ({ title: route.params.name })}
+    />
   </Stack.Navigator>
 );
