@@ -33,6 +33,10 @@ rules:
           message: Import from styled-components/native.
       patterns:
         - "!styled-components/native"
+  react-native/no-raw-text:
+    - error
+    - skip:
+        - Body
 
 settings:
   react:
