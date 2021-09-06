@@ -10,7 +10,7 @@ export const ShopScreen: React.FC = () => {
     params: { id },
   } = useRoute<BrowseStackRouteProp<"Shop">>();
 
-  const shopResult = useGetShopQuery({
+  const { data } = useGetShopQuery({
     variables: { shopWhere: { id } },
   });
 

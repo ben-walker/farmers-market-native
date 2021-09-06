@@ -7,20 +7,24 @@ import { ShopFeedItem } from "./ShopFeedItem";
 import { ShopFeedQueryItem } from "./types";
 
 export const ShopFeedScreen: React.FC = () => {
-  const shopFeedResult = useGetShopFeedQuery();
+  const { data, loading, refetch } = useGetShopFeedQuery();
+
+  const keyExtractor = (shop: ShopFeedQueryItem) => shop.id;
+
+  const onRefresh = () => refetch();
 
   const renderItem: ListRenderItem<ShopFeedQueryItem> = ({ item }) => (
     <ShopFeedItem shop={item} />
   );
 
-  const keyExtractor = (shop: ShopFeedQueryItem) => shop.id;
-
   return (
     <ScreenContainer>
       <FlatList
-        data={shopFeedResult.data?.shops}
-        renderItem={renderItem}
+        data={data?.shops}
         keyExtractor={keyExtractor}
+        onRefresh={onRefresh}
+        refreshing={loading}
+        renderItem={renderItem}
       />
     </ScreenContainer>
   );
