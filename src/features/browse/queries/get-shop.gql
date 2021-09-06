@@ -1,0 +1,17 @@
+query GetShop($shopWhere: ShopWhereUniqueInput!) {
+  shop(where: $shopWhere) {
+    createdAt
+    id
+    name
+    owner {
+      createdAt
+      email
+      id
+    }
+    products {
+      createdAt
+      id
+      name
+    }
+  }
+}
