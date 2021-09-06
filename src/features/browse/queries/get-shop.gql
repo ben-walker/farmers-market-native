@@ -5,7 +5,7 @@ query GetShop($shopWhere: ShopWhereUniqueInput!) {
     name
     owner {
       createdAt
-      email
+      fullName
       id
     }
     products {

@@ -569,6 +569,7 @@ export type ShopWhereUniqueInput = {
 
 export type SignUpInput = {
   email: Scalars['String'];
+  fullName: Scalars['String'];
   password: Scalars['String'];
 };
 
@@ -615,6 +616,7 @@ export type User = {
   createdAt: Scalars['DateTime'];
   email: Scalars['String'];
   emailVerified?: Maybe<Scalars['DateTime']>;
+  fullName: Scalars['String'];
   id: Scalars['String'];
   shops: Array<Shop>;
 };
@@ -634,6 +636,7 @@ export type UserCountAggregate = {
   createdAt: Scalars['Int'];
   email: Scalars['Int'];
   emailVerified: Scalars['Int'];
+  fullName: Scalars['Int'];
   id: Scalars['Int'];
   passwordHash: Scalars['Int'];
   _all: Scalars['Int'];
@@ -644,6 +647,7 @@ export type UserGroupBy = {
   createdAt: Scalars['DateTime'];
   email: Scalars['String'];
   emailVerified?: Maybe<Scalars['DateTime']>;
+  fullName: Scalars['String'];
   id: Scalars['String'];
   passwordHash: Scalars['String'];
   _count?: Maybe<UserCountAggregate>;
@@ -656,6 +660,7 @@ export type UserMaxAggregate = {
   createdAt?: Maybe<Scalars['DateTime']>;
   email?: Maybe<Scalars['String']>;
   emailVerified?: Maybe<Scalars['DateTime']>;
+  fullName?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
   passwordHash?: Maybe<Scalars['String']>;
 };
@@ -665,6 +670,7 @@ export type UserMinAggregate = {
   createdAt?: Maybe<Scalars['DateTime']>;
   email?: Maybe<Scalars['String']>;
   emailVerified?: Maybe<Scalars['DateTime']>;
+  fullName?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
   passwordHash?: Maybe<Scalars['String']>;
 };
@@ -673,6 +679,7 @@ export type UserOrderByInput = {
   createdAt?: Maybe<SortOrder>;
   email?: Maybe<SortOrder>;
   emailVerified?: Maybe<SortOrder>;
+  fullName?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   passwordHash?: Maybe<SortOrder>;
 };
@@ -686,6 +693,7 @@ export enum UserScalarFieldEnum {
   CreatedAt = 'createdAt',
   Email = 'email',
   EmailVerified = 'emailVerified',
+  FullName = 'fullName',
   Id = 'id',
   PasswordHash = 'passwordHash'
 }
@@ -697,6 +705,7 @@ export type UserScalarWhereWithAggregatesInput = {
   createdAt?: Maybe<DateTimeWithAggregatesFilter>;
   email?: Maybe<StringWithAggregatesFilter>;
   emailVerified?: Maybe<DateTimeNullableWithAggregatesFilter>;
+  fullName?: Maybe<StringWithAggregatesFilter>;
   id?: Maybe<StringWithAggregatesFilter>;
   passwordHash?: Maybe<StringWithAggregatesFilter>;
 };
@@ -708,6 +717,7 @@ export type UserWhereInput = {
   createdAt?: Maybe<DateTimeFilter>;
   email?: Maybe<StringFilter>;
   emailVerified?: Maybe<DateTimeNullableFilter>;
+  fullName?: Maybe<StringFilter>;
   id?: Maybe<StringFilter>;
   passwordHash?: Maybe<StringFilter>;
   shops?: Maybe<ShopListRelationFilter>;
@@ -728,7 +738,7 @@ export type GetShopQueryVariables = Exact<{
 }>;
 
 
-export type GetShopQuery = { __typename?: 'Query', shop?: Maybe<{ __typename?: 'Shop', createdAt: string, id: string, name: string, owner: { __typename?: 'User', createdAt: string, email: string, id: string }, products: Array<{ __typename?: 'Product', createdAt: string, id: string, name: string }> }> };
+export type GetShopQuery = { __typename?: 'Query', shop?: Maybe<{ __typename?: 'Shop', createdAt: string, id: string, name: string, owner: { __typename?: 'User', createdAt: string, fullName: string, id: string }, products: Array<{ __typename?: 'Product', createdAt: string, id: string, name: string }> }> };
 
 
 export const GetShopFeedDocument = gql`
@@ -775,7 +785,7 @@ export const GetShopDocument = gql`
     name
     owner {
       createdAt
-      email
+      fullName
       id
     }
     products {

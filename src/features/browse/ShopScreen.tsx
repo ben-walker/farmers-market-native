@@ -18,7 +18,7 @@ export const ShopScreen: React.FC = () => {
   return (
     <ScreenContainer>
       <ScrollView>
-        <Body>Owned by: {data?.shop?.owner.email}</Body>
+        <Body>Owned by: {data?.shop?.owner.fullName}</Body>
         <Body>Products</Body>
         {data?.shop?.products.map((product) => (
           <Body key={product.id}>{product.name}</Body>
