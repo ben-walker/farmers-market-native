@@ -22,72 +22,72 @@ export type Scalars = {
 export type AggregateProduct = {
   __typename?: 'AggregateProduct';
   _count?: Maybe<ProductCountAggregate>;
-  _min?: Maybe<ProductMinAggregate>;
   _max?: Maybe<ProductMaxAggregate>;
+  _min?: Maybe<ProductMinAggregate>;
 };
 
 export type AggregateShop = {
   __typename?: 'AggregateShop';
   _count?: Maybe<ShopCountAggregate>;
-  _min?: Maybe<ShopMinAggregate>;
   _max?: Maybe<ShopMaxAggregate>;
+  _min?: Maybe<ShopMinAggregate>;
 };
 
 export type AggregateUser = {
   __typename?: 'AggregateUser';
   _count?: Maybe<UserCountAggregate>;
-  _min?: Maybe<UserMinAggregate>;
   _max?: Maybe<UserMaxAggregate>;
+  _min?: Maybe<UserMinAggregate>;
 };
 
 export type DateTimeFilter = {
   equals?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
   gt?: Maybe<Scalars['DateTime']>;
   gte?: Maybe<Scalars['DateTime']>;
+  in?: Maybe<Array<Scalars['DateTime']>>;
+  lt?: Maybe<Scalars['DateTime']>;
+  lte?: Maybe<Scalars['DateTime']>;
   not?: Maybe<NestedDateTimeFilter>;
+  notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
 
 export type DateTimeNullableFilter = {
   equals?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
   gt?: Maybe<Scalars['DateTime']>;
   gte?: Maybe<Scalars['DateTime']>;
+  in?: Maybe<Array<Scalars['DateTime']>>;
+  lt?: Maybe<Scalars['DateTime']>;
+  lte?: Maybe<Scalars['DateTime']>;
   not?: Maybe<NestedDateTimeNullableFilter>;
+  notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
 
 export type DateTimeNullableWithAggregatesFilter = {
+  _count?: Maybe<NestedIntNullableFilter>;
+  _max?: Maybe<NestedDateTimeNullableFilter>;
+  _min?: Maybe<NestedDateTimeNullableFilter>;
   equals?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
   gt?: Maybe<Scalars['DateTime']>;
   gte?: Maybe<Scalars['DateTime']>;
+  in?: Maybe<Array<Scalars['DateTime']>>;
+  lt?: Maybe<Scalars['DateTime']>;
+  lte?: Maybe<Scalars['DateTime']>;
   not?: Maybe<NestedDateTimeNullableWithAggregatesFilter>;
-  _count?: Maybe<NestedIntNullableFilter>;
-  _min?: Maybe<NestedDateTimeNullableFilter>;
-  _max?: Maybe<NestedDateTimeNullableFilter>;
+  notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
 
 export type DateTimeWithAggregatesFilter = {
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedDateTimeFilter>;
+  _min?: Maybe<NestedDateTimeFilter>;
   equals?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
   gt?: Maybe<Scalars['DateTime']>;
   gte?: Maybe<Scalars['DateTime']>;
+  in?: Maybe<Array<Scalars['DateTime']>>;
+  lt?: Maybe<Scalars['DateTime']>;
+  lte?: Maybe<Scalars['DateTime']>;
   not?: Maybe<NestedDateTimeWithAggregatesFilter>;
-  _count?: Maybe<NestedIntFilter>;
-  _min?: Maybe<NestedDateTimeFilter>;
-  _max?: Maybe<NestedDateTimeFilter>;
+  notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
 
 export type LogInInput = {
@@ -97,13 +97,8 @@ export type LogInInput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  signUp: User;
   logIn: User;
-};
-
-
-export type MutationSignUpArgs = {
-  input: SignUpInput;
+  signUp: User;
 };
 
 
@@ -111,107 +106,112 @@ export type MutationLogInArgs = {
   input: LogInInput;
 };
 
+
+export type MutationSignUpArgs = {
+  input: SignUpInput;
+};
+
 export type NestedDateTimeFilter = {
   equals?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
   gt?: Maybe<Scalars['DateTime']>;
   gte?: Maybe<Scalars['DateTime']>;
+  in?: Maybe<Array<Scalars['DateTime']>>;
+  lt?: Maybe<Scalars['DateTime']>;
+  lte?: Maybe<Scalars['DateTime']>;
   not?: Maybe<NestedDateTimeFilter>;
+  notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
 
 export type NestedDateTimeNullableFilter = {
   equals?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
   gt?: Maybe<Scalars['DateTime']>;
   gte?: Maybe<Scalars['DateTime']>;
+  in?: Maybe<Array<Scalars['DateTime']>>;
+  lt?: Maybe<Scalars['DateTime']>;
+  lte?: Maybe<Scalars['DateTime']>;
   not?: Maybe<NestedDateTimeNullableFilter>;
+  notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
 
 export type NestedDateTimeNullableWithAggregatesFilter = {
+  _count?: Maybe<NestedIntNullableFilter>;
+  _max?: Maybe<NestedDateTimeNullableFilter>;
+  _min?: Maybe<NestedDateTimeNullableFilter>;
   equals?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
   gt?: Maybe<Scalars['DateTime']>;
   gte?: Maybe<Scalars['DateTime']>;
+  in?: Maybe<Array<Scalars['DateTime']>>;
+  lt?: Maybe<Scalars['DateTime']>;
+  lte?: Maybe<Scalars['DateTime']>;
   not?: Maybe<NestedDateTimeNullableWithAggregatesFilter>;
-  _count?: Maybe<NestedIntNullableFilter>;
-  _min?: Maybe<NestedDateTimeNullableFilter>;
-  _max?: Maybe<NestedDateTimeNullableFilter>;
+  notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
 
 export type NestedDateTimeWithAggregatesFilter = {
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedDateTimeFilter>;
+  _min?: Maybe<NestedDateTimeFilter>;
   equals?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
   gt?: Maybe<Scalars['DateTime']>;
   gte?: Maybe<Scalars['DateTime']>;
+  in?: Maybe<Array<Scalars['DateTime']>>;
+  lt?: Maybe<Scalars['DateTime']>;
+  lte?: Maybe<Scalars['DateTime']>;
   not?: Maybe<NestedDateTimeWithAggregatesFilter>;
-  _count?: Maybe<NestedIntFilter>;
-  _min?: Maybe<NestedDateTimeFilter>;
-  _max?: Maybe<NestedDateTimeFilter>;
+  notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
 
 export type NestedIntFilter = {
   equals?: Maybe<Scalars['Int']>;
-  in?: Maybe<Array<Scalars['Int']>>;
-  notIn?: Maybe<Array<Scalars['Int']>>;
-  lt?: Maybe<Scalars['Int']>;
-  lte?: Maybe<Scalars['Int']>;
   gt?: Maybe<Scalars['Int']>;
   gte?: Maybe<Scalars['Int']>;
+  in?: Maybe<Array<Scalars['Int']>>;
+  lt?: Maybe<Scalars['Int']>;
+  lte?: Maybe<Scalars['Int']>;
   not?: Maybe<NestedIntFilter>;
+  notIn?: Maybe<Array<Scalars['Int']>>;
 };
 
 export type NestedIntNullableFilter = {
   equals?: Maybe<Scalars['Int']>;
-  in?: Maybe<Array<Scalars['Int']>>;
-  notIn?: Maybe<Array<Scalars['Int']>>;
-  lt?: Maybe<Scalars['Int']>;
-  lte?: Maybe<Scalars['Int']>;
   gt?: Maybe<Scalars['Int']>;
   gte?: Maybe<Scalars['Int']>;
+  in?: Maybe<Array<Scalars['Int']>>;
+  lt?: Maybe<Scalars['Int']>;
+  lte?: Maybe<Scalars['Int']>;
   not?: Maybe<NestedIntNullableFilter>;
+  notIn?: Maybe<Array<Scalars['Int']>>;
 };
 
 export type NestedStringFilter = {
+  contains?: Maybe<Scalars['String']>;
+  endsWith?: Maybe<Scalars['String']>;
   equals?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
   gt?: Maybe<Scalars['String']>;
   gte?: Maybe<Scalars['String']>;
-  contains?: Maybe<Scalars['String']>;
-  startsWith?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
+  in?: Maybe<Array<Scalars['String']>>;
+  lt?: Maybe<Scalars['String']>;
+  lte?: Maybe<Scalars['String']>;
   not?: Maybe<NestedStringFilter>;
+  notIn?: Maybe<Array<Scalars['String']>>;
+  startsWith?: Maybe<Scalars['String']>;
 };
 
 export type NestedStringWithAggregatesFilter = {
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedStringFilter>;
+  _min?: Maybe<NestedStringFilter>;
+  contains?: Maybe<Scalars['String']>;
+  endsWith?: Maybe<Scalars['String']>;
   equals?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
   gt?: Maybe<Scalars['String']>;
   gte?: Maybe<Scalars['String']>;
-  contains?: Maybe<Scalars['String']>;
-  startsWith?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
+  in?: Maybe<Array<Scalars['String']>>;
+  lt?: Maybe<Scalars['String']>;
+  lte?: Maybe<Scalars['String']>;
   not?: Maybe<NestedStringWithAggregatesFilter>;
-  _count?: Maybe<NestedIntFilter>;
-  _min?: Maybe<NestedStringFilter>;
-  _max?: Maybe<NestedStringFilter>;
+  notIn?: Maybe<Array<Scalars['String']>>;
+  startsWith?: Maybe<Scalars['String']>;
 };
 
 export type Product = {
@@ -219,34 +219,41 @@ export type Product = {
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   name: Scalars['String'];
-  shopId: Scalars['String'];
   shop: Shop;
+  shopId: Scalars['String'];
 };
 
 export type ProductCountAggregate = {
   __typename?: 'ProductCountAggregate';
+  _all: Scalars['Int'];
   createdAt: Scalars['Int'];
   id: Scalars['Int'];
   name: Scalars['Int'];
   shopId: Scalars['Int'];
-  _all: Scalars['Int'];
+};
+
+export type ProductCountOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  shopId?: Maybe<SortOrder>;
 };
 
 export type ProductGroupBy = {
   __typename?: 'ProductGroupBy';
+  _count?: Maybe<ProductCountAggregate>;
+  _max?: Maybe<ProductMaxAggregate>;
+  _min?: Maybe<ProductMinAggregate>;
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   name: Scalars['String'];
   shopId: Scalars['String'];
-  _count?: Maybe<ProductCountAggregate>;
-  _min?: Maybe<ProductMinAggregate>;
-  _max?: Maybe<ProductMaxAggregate>;
 };
 
 export type ProductListRelationFilter = {
   every?: Maybe<ProductWhereInput>;
-  some?: Maybe<ProductWhereInput>;
   none?: Maybe<ProductWhereInput>;
+  some?: Maybe<ProductWhereInput>;
 };
 
 export type ProductMaxAggregate = {
@@ -257,6 +264,13 @@ export type ProductMaxAggregate = {
   shopId?: Maybe<Scalars['String']>;
 };
 
+export type ProductMaxOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  shopId?: Maybe<SortOrder>;
+};
+
 export type ProductMinAggregate = {
   __typename?: 'ProductMinAggregate';
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -265,10 +279,32 @@ export type ProductMinAggregate = {
   shopId?: Maybe<Scalars['String']>;
 };
 
-export type ProductOrderByInput = {
+export type ProductMinOrderByAggregateInput = {
   createdAt?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  shopId?: Maybe<SortOrder>;
+};
+
+export type ProductOrderByRelationAggregateInput = {
+  _count?: Maybe<SortOrder>;
+};
+
+export type ProductOrderByWithAggregationInput = {
+  _count?: Maybe<ProductCountOrderByAggregateInput>;
+  _max?: Maybe<ProductMaxOrderByAggregateInput>;
+  _min?: Maybe<ProductMinOrderByAggregateInput>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  shopId?: Maybe<SortOrder>;
+};
+
+export type ProductOrderByWithRelationInput = {
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  shop?: Maybe<ShopOrderByWithRelationInput>;
   shopId?: Maybe<SortOrder>;
 };
 
@@ -281,8 +317,8 @@ export enum ProductScalarFieldEnum {
 
 export type ProductScalarWhereWithAggregatesInput = {
   AND?: Maybe<Array<ProductScalarWhereWithAggregatesInput>>;
-  OR?: Maybe<Array<ProductScalarWhereWithAggregatesInput>>;
   NOT?: Maybe<Array<ProductScalarWhereWithAggregatesInput>>;
+  OR?: Maybe<Array<ProductScalarWhereWithAggregatesInput>>;
   createdAt?: Maybe<DateTimeWithAggregatesFilter>;
   id?: Maybe<StringWithAggregatesFilter>;
   name?: Maybe<StringWithAggregatesFilter>;
@@ -291,8 +327,8 @@ export type ProductScalarWhereWithAggregatesInput = {
 
 export type ProductWhereInput = {
   AND?: Maybe<Array<ProductWhereInput>>;
-  OR?: Maybe<Array<ProductWhereInput>>;
   NOT?: Maybe<Array<ProductWhereInput>>;
+  OR?: Maybe<Array<ProductWhereInput>>;
   createdAt?: Maybe<DateTimeFilter>;
   id?: Maybe<StringFilter>;
   name?: Maybe<StringFilter>;
@@ -306,21 +342,108 @@ export type ProductWhereUniqueInput = {
 
 export type Query = {
   __typename?: 'Query';
-  product?: Maybe<Product>;
-  findFirstProduct?: Maybe<Product>;
-  products: Array<Product>;
   aggregateProduct: AggregateProduct;
-  groupByProduct: Array<ProductGroupBy>;
-  shop?: Maybe<Shop>;
-  findFirstShop?: Maybe<Shop>;
-  shops: Array<Shop>;
   aggregateShop: AggregateShop;
-  groupByShop: Array<ShopGroupBy>;
-  user?: Maybe<User>;
-  findFirstUser?: Maybe<User>;
-  users: Array<User>;
   aggregateUser: AggregateUser;
+  findFirstProduct?: Maybe<Product>;
+  findFirstShop?: Maybe<Shop>;
+  findFirstUser?: Maybe<User>;
+  groupByProduct: Array<ProductGroupBy>;
+  groupByShop: Array<ShopGroupBy>;
   groupByUser: Array<UserGroupBy>;
+  product?: Maybe<Product>;
+  products: Array<Product>;
+  shop?: Maybe<Shop>;
+  shops: Array<Shop>;
+  user?: Maybe<User>;
+  users: Array<User>;
+};
+
+
+export type QueryAggregateProductArgs = {
+  cursor?: Maybe<ProductWhereUniqueInput>;
+  orderBy?: Maybe<Array<ProductOrderByWithRelationInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<ProductWhereInput>;
+};
+
+
+export type QueryAggregateShopArgs = {
+  cursor?: Maybe<ShopWhereUniqueInput>;
+  orderBy?: Maybe<Array<ShopOrderByWithRelationInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<ShopWhereInput>;
+};
+
+
+export type QueryAggregateUserArgs = {
+  cursor?: Maybe<UserWhereUniqueInput>;
+  orderBy?: Maybe<Array<UserOrderByWithRelationInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<UserWhereInput>;
+};
+
+
+export type QueryFindFirstProductArgs = {
+  cursor?: Maybe<ProductWhereUniqueInput>;
+  distinct?: Maybe<Array<ProductScalarFieldEnum>>;
+  orderBy?: Maybe<Array<ProductOrderByWithRelationInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<ProductWhereInput>;
+};
+
+
+export type QueryFindFirstShopArgs = {
+  cursor?: Maybe<ShopWhereUniqueInput>;
+  distinct?: Maybe<Array<ShopScalarFieldEnum>>;
+  orderBy?: Maybe<Array<ShopOrderByWithRelationInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<ShopWhereInput>;
+};
+
+
+export type QueryFindFirstUserArgs = {
+  cursor?: Maybe<UserWhereUniqueInput>;
+  distinct?: Maybe<Array<UserScalarFieldEnum>>;
+  orderBy?: Maybe<Array<UserOrderByWithRelationInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<UserWhereInput>;
+};
+
+
+export type QueryGroupByProductArgs = {
+  by: Array<ProductScalarFieldEnum>;
+  having?: Maybe<ProductScalarWhereWithAggregatesInput>;
+  orderBy?: Maybe<Array<ProductOrderByWithAggregationInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<ProductWhereInput>;
+};
+
+
+export type QueryGroupByShopArgs = {
+  by: Array<ShopScalarFieldEnum>;
+  having?: Maybe<ShopScalarWhereWithAggregatesInput>;
+  orderBy?: Maybe<Array<ShopOrderByWithAggregationInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<ShopWhereInput>;
+};
+
+
+export type QueryGroupByUserArgs = {
+  by: Array<UserScalarFieldEnum>;
+  having?: Maybe<UserScalarWhereWithAggregatesInput>;
+  orderBy?: Maybe<Array<UserOrderByWithAggregationInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<UserWhereInput>;
 };
 
 
@@ -329,42 +452,13 @@ export type QueryProductArgs = {
 };
 
 
-export type QueryFindFirstProductArgs = {
-  where?: Maybe<ProductWhereInput>;
-  orderBy?: Maybe<Array<ProductOrderByInput>>;
-  cursor?: Maybe<ProductWhereUniqueInput>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
-  distinct?: Maybe<Array<ProductScalarFieldEnum>>;
-};
-
-
 export type QueryProductsArgs = {
-  where?: Maybe<ProductWhereInput>;
-  orderBy?: Maybe<Array<ProductOrderByInput>>;
   cursor?: Maybe<ProductWhereUniqueInput>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
   distinct?: Maybe<Array<ProductScalarFieldEnum>>;
-};
-
-
-export type QueryAggregateProductArgs = {
-  where?: Maybe<ProductWhereInput>;
-  orderBy?: Maybe<Array<ProductOrderByInput>>;
-  cursor?: Maybe<ProductWhereUniqueInput>;
-  take?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<ProductOrderByWithRelationInput>>;
   skip?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryGroupByProductArgs = {
-  where?: Maybe<ProductWhereInput>;
-  orderBy?: Maybe<Array<ProductOrderByInput>>;
-  by: Array<ProductScalarFieldEnum>;
-  having?: Maybe<ProductScalarWhereWithAggregatesInput>;
   take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  where?: Maybe<ProductWhereInput>;
 };
 
 
@@ -373,42 +467,13 @@ export type QueryShopArgs = {
 };
 
 
-export type QueryFindFirstShopArgs = {
-  where?: Maybe<ShopWhereInput>;
-  orderBy?: Maybe<Array<ShopOrderByInput>>;
-  cursor?: Maybe<ShopWhereUniqueInput>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
-  distinct?: Maybe<Array<ShopScalarFieldEnum>>;
-};
-
-
 export type QueryShopsArgs = {
-  where?: Maybe<ShopWhereInput>;
-  orderBy?: Maybe<Array<ShopOrderByInput>>;
   cursor?: Maybe<ShopWhereUniqueInput>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
   distinct?: Maybe<Array<ShopScalarFieldEnum>>;
-};
-
-
-export type QueryAggregateShopArgs = {
-  where?: Maybe<ShopWhereInput>;
-  orderBy?: Maybe<Array<ShopOrderByInput>>;
-  cursor?: Maybe<ShopWhereUniqueInput>;
-  take?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<ShopOrderByWithRelationInput>>;
   skip?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryGroupByShopArgs = {
-  where?: Maybe<ShopWhereInput>;
-  orderBy?: Maybe<Array<ShopOrderByInput>>;
-  by: Array<ShopScalarFieldEnum>;
-  having?: Maybe<ShopScalarWhereWithAggregatesInput>;
   take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  where?: Maybe<ShopWhereInput>;
 };
 
 
@@ -417,42 +482,13 @@ export type QueryUserArgs = {
 };
 
 
-export type QueryFindFirstUserArgs = {
-  where?: Maybe<UserWhereInput>;
-  orderBy?: Maybe<Array<UserOrderByInput>>;
-  cursor?: Maybe<UserWhereUniqueInput>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
-  distinct?: Maybe<Array<UserScalarFieldEnum>>;
-};
-
-
 export type QueryUsersArgs = {
-  where?: Maybe<UserWhereInput>;
-  orderBy?: Maybe<Array<UserOrderByInput>>;
   cursor?: Maybe<UserWhereUniqueInput>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
   distinct?: Maybe<Array<UserScalarFieldEnum>>;
-};
-
-
-export type QueryAggregateUserArgs = {
-  where?: Maybe<UserWhereInput>;
-  orderBy?: Maybe<Array<UserOrderByInput>>;
-  cursor?: Maybe<UserWhereUniqueInput>;
-  take?: Maybe<Scalars['Int']>;
+  orderBy?: Maybe<Array<UserOrderByWithRelationInput>>;
   skip?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryGroupByUserArgs = {
-  where?: Maybe<UserWhereInput>;
-  orderBy?: Maybe<Array<UserOrderByInput>>;
-  by: Array<UserScalarFieldEnum>;
-  having?: Maybe<UserScalarWhereWithAggregatesInput>;
   take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
+  where?: Maybe<UserWhereInput>;
 };
 
 export enum QueryMode {
@@ -462,48 +498,61 @@ export enum QueryMode {
 
 export type Shop = {
   __typename?: 'Shop';
+  _count?: Maybe<ShopCount>;
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   name: Scalars['String'];
-  ownerId: Scalars['String'];
   owner: User;
+  ownerId: Scalars['String'];
   products: Array<Product>;
 };
 
 
 export type ShopProductsArgs = {
-  where?: Maybe<ProductWhereInput>;
-  orderBy?: Maybe<Array<ProductOrderByInput>>;
   cursor?: Maybe<ProductWhereUniqueInput>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
   distinct?: Maybe<Array<ProductScalarFieldEnum>>;
+  orderBy?: Maybe<Array<ProductOrderByWithRelationInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<ProductWhereInput>;
+};
+
+export type ShopCount = {
+  __typename?: 'ShopCount';
+  products: Scalars['Int'];
 };
 
 export type ShopCountAggregate = {
   __typename?: 'ShopCountAggregate';
+  _all: Scalars['Int'];
   createdAt: Scalars['Int'];
   id: Scalars['Int'];
   name: Scalars['Int'];
   ownerId: Scalars['Int'];
-  _all: Scalars['Int'];
+};
+
+export type ShopCountOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  ownerId?: Maybe<SortOrder>;
 };
 
 export type ShopGroupBy = {
   __typename?: 'ShopGroupBy';
+  _count?: Maybe<ShopCountAggregate>;
+  _max?: Maybe<ShopMaxAggregate>;
+  _min?: Maybe<ShopMinAggregate>;
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   name: Scalars['String'];
   ownerId: Scalars['String'];
-  _count?: Maybe<ShopCountAggregate>;
-  _min?: Maybe<ShopMinAggregate>;
-  _max?: Maybe<ShopMaxAggregate>;
 };
 
 export type ShopListRelationFilter = {
   every?: Maybe<ShopWhereInput>;
-  some?: Maybe<ShopWhereInput>;
   none?: Maybe<ShopWhereInput>;
+  some?: Maybe<ShopWhereInput>;
 };
 
 export type ShopMaxAggregate = {
@@ -514,6 +563,13 @@ export type ShopMaxAggregate = {
   ownerId?: Maybe<Scalars['String']>;
 };
 
+export type ShopMaxOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  ownerId?: Maybe<SortOrder>;
+};
+
 export type ShopMinAggregate = {
   __typename?: 'ShopMinAggregate';
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -522,11 +578,34 @@ export type ShopMinAggregate = {
   ownerId?: Maybe<Scalars['String']>;
 };
 
-export type ShopOrderByInput = {
+export type ShopMinOrderByAggregateInput = {
   createdAt?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
   ownerId?: Maybe<SortOrder>;
+};
+
+export type ShopOrderByRelationAggregateInput = {
+  _count?: Maybe<SortOrder>;
+};
+
+export type ShopOrderByWithAggregationInput = {
+  _count?: Maybe<ShopCountOrderByAggregateInput>;
+  _max?: Maybe<ShopMaxOrderByAggregateInput>;
+  _min?: Maybe<ShopMinOrderByAggregateInput>;
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  ownerId?: Maybe<SortOrder>;
+};
+
+export type ShopOrderByWithRelationInput = {
+  createdAt?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  name?: Maybe<SortOrder>;
+  owner?: Maybe<UserOrderByWithRelationInput>;
+  ownerId?: Maybe<SortOrder>;
+  products?: Maybe<ProductOrderByRelationAggregateInput>;
 };
 
 export type ShopRelationFilter = {
@@ -543,8 +622,8 @@ export enum ShopScalarFieldEnum {
 
 export type ShopScalarWhereWithAggregatesInput = {
   AND?: Maybe<Array<ShopScalarWhereWithAggregatesInput>>;
-  OR?: Maybe<Array<ShopScalarWhereWithAggregatesInput>>;
   NOT?: Maybe<Array<ShopScalarWhereWithAggregatesInput>>;
+  OR?: Maybe<Array<ShopScalarWhereWithAggregatesInput>>;
   createdAt?: Maybe<DateTimeWithAggregatesFilter>;
   id?: Maybe<StringWithAggregatesFilter>;
   name?: Maybe<StringWithAggregatesFilter>;
@@ -553,8 +632,8 @@ export type ShopScalarWhereWithAggregatesInput = {
 
 export type ShopWhereInput = {
   AND?: Maybe<Array<ShopWhereInput>>;
-  OR?: Maybe<Array<ShopWhereInput>>;
   NOT?: Maybe<Array<ShopWhereInput>>;
+  OR?: Maybe<Array<ShopWhereInput>>;
   createdAt?: Maybe<DateTimeFilter>;
   id?: Maybe<StringFilter>;
   name?: Maybe<StringFilter>;
@@ -579,40 +658,41 @@ export enum SortOrder {
 }
 
 export type StringFilter = {
+  contains?: Maybe<Scalars['String']>;
+  endsWith?: Maybe<Scalars['String']>;
   equals?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
   gt?: Maybe<Scalars['String']>;
   gte?: Maybe<Scalars['String']>;
-  contains?: Maybe<Scalars['String']>;
-  startsWith?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
+  in?: Maybe<Array<Scalars['String']>>;
+  lt?: Maybe<Scalars['String']>;
+  lte?: Maybe<Scalars['String']>;
   mode?: Maybe<QueryMode>;
   not?: Maybe<NestedStringFilter>;
+  notIn?: Maybe<Array<Scalars['String']>>;
+  startsWith?: Maybe<Scalars['String']>;
 };
 
 export type StringWithAggregatesFilter = {
+  _count?: Maybe<NestedIntFilter>;
+  _max?: Maybe<NestedStringFilter>;
+  _min?: Maybe<NestedStringFilter>;
+  contains?: Maybe<Scalars['String']>;
+  endsWith?: Maybe<Scalars['String']>;
   equals?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
   gt?: Maybe<Scalars['String']>;
   gte?: Maybe<Scalars['String']>;
-  contains?: Maybe<Scalars['String']>;
-  startsWith?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
+  in?: Maybe<Array<Scalars['String']>>;
+  lt?: Maybe<Scalars['String']>;
+  lte?: Maybe<Scalars['String']>;
   mode?: Maybe<QueryMode>;
   not?: Maybe<NestedStringWithAggregatesFilter>;
-  _count?: Maybe<NestedIntFilter>;
-  _min?: Maybe<NestedStringFilter>;
-  _max?: Maybe<NestedStringFilter>;
+  notIn?: Maybe<Array<Scalars['String']>>;
+  startsWith?: Maybe<Scalars['String']>;
 };
 
 export type User = {
   __typename?: 'User';
+  _count?: Maybe<UserCount>;
   createdAt: Scalars['DateTime'];
   email: Scalars['String'];
   emailVerified?: Maybe<Scalars['DateTime']>;
@@ -623,36 +703,49 @@ export type User = {
 
 
 export type UserShopsArgs = {
-  where?: Maybe<ShopWhereInput>;
-  orderBy?: Maybe<Array<ShopOrderByInput>>;
   cursor?: Maybe<ShopWhereUniqueInput>;
-  take?: Maybe<Scalars['Int']>;
-  skip?: Maybe<Scalars['Int']>;
   distinct?: Maybe<Array<ShopScalarFieldEnum>>;
+  orderBy?: Maybe<Array<ShopOrderByWithRelationInput>>;
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
+  where?: Maybe<ShopWhereInput>;
+};
+
+export type UserCount = {
+  __typename?: 'UserCount';
+  shops: Scalars['Int'];
 };
 
 export type UserCountAggregate = {
   __typename?: 'UserCountAggregate';
+  _all: Scalars['Int'];
   createdAt: Scalars['Int'];
   email: Scalars['Int'];
   emailVerified: Scalars['Int'];
   fullName: Scalars['Int'];
   id: Scalars['Int'];
   passwordHash: Scalars['Int'];
-  _all: Scalars['Int'];
+};
+
+export type UserCountOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  email?: Maybe<SortOrder>;
+  emailVerified?: Maybe<SortOrder>;
+  fullName?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
 };
 
 export type UserGroupBy = {
   __typename?: 'UserGroupBy';
+  _count?: Maybe<UserCountAggregate>;
+  _max?: Maybe<UserMaxAggregate>;
+  _min?: Maybe<UserMinAggregate>;
   createdAt: Scalars['DateTime'];
   email: Scalars['String'];
   emailVerified?: Maybe<Scalars['DateTime']>;
   fullName: Scalars['String'];
   id: Scalars['String'];
   passwordHash: Scalars['String'];
-  _count?: Maybe<UserCountAggregate>;
-  _min?: Maybe<UserMinAggregate>;
-  _max?: Maybe<UserMaxAggregate>;
 };
 
 export type UserMaxAggregate = {
@@ -665,6 +758,14 @@ export type UserMaxAggregate = {
   passwordHash?: Maybe<Scalars['String']>;
 };
 
+export type UserMaxOrderByAggregateInput = {
+  createdAt?: Maybe<SortOrder>;
+  email?: Maybe<SortOrder>;
+  emailVerified?: Maybe<SortOrder>;
+  fullName?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+};
+
 export type UserMinAggregate = {
   __typename?: 'UserMinAggregate';
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -675,13 +776,32 @@ export type UserMinAggregate = {
   passwordHash?: Maybe<Scalars['String']>;
 };
 
-export type UserOrderByInput = {
+export type UserMinOrderByAggregateInput = {
   createdAt?: Maybe<SortOrder>;
   email?: Maybe<SortOrder>;
   emailVerified?: Maybe<SortOrder>;
   fullName?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
-  passwordHash?: Maybe<SortOrder>;
+};
+
+export type UserOrderByWithAggregationInput = {
+  _count?: Maybe<UserCountOrderByAggregateInput>;
+  _max?: Maybe<UserMaxOrderByAggregateInput>;
+  _min?: Maybe<UserMinOrderByAggregateInput>;
+  createdAt?: Maybe<SortOrder>;
+  email?: Maybe<SortOrder>;
+  emailVerified?: Maybe<SortOrder>;
+  fullName?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+};
+
+export type UserOrderByWithRelationInput = {
+  createdAt?: Maybe<SortOrder>;
+  email?: Maybe<SortOrder>;
+  emailVerified?: Maybe<SortOrder>;
+  fullName?: Maybe<SortOrder>;
+  id?: Maybe<SortOrder>;
+  shops?: Maybe<ShopOrderByRelationAggregateInput>;
 };
 
 export type UserRelationFilter = {
@@ -700,26 +820,24 @@ export enum UserScalarFieldEnum {
 
 export type UserScalarWhereWithAggregatesInput = {
   AND?: Maybe<Array<UserScalarWhereWithAggregatesInput>>;
-  OR?: Maybe<Array<UserScalarWhereWithAggregatesInput>>;
   NOT?: Maybe<Array<UserScalarWhereWithAggregatesInput>>;
+  OR?: Maybe<Array<UserScalarWhereWithAggregatesInput>>;
   createdAt?: Maybe<DateTimeWithAggregatesFilter>;
   email?: Maybe<StringWithAggregatesFilter>;
   emailVerified?: Maybe<DateTimeNullableWithAggregatesFilter>;
   fullName?: Maybe<StringWithAggregatesFilter>;
   id?: Maybe<StringWithAggregatesFilter>;
-  passwordHash?: Maybe<StringWithAggregatesFilter>;
 };
 
 export type UserWhereInput = {
   AND?: Maybe<Array<UserWhereInput>>;
-  OR?: Maybe<Array<UserWhereInput>>;
   NOT?: Maybe<Array<UserWhereInput>>;
+  OR?: Maybe<Array<UserWhereInput>>;
   createdAt?: Maybe<DateTimeFilter>;
   email?: Maybe<StringFilter>;
   emailVerified?: Maybe<DateTimeNullableFilter>;
   fullName?: Maybe<StringFilter>;
   id?: Maybe<StringFilter>;
-  passwordHash?: Maybe<StringFilter>;
   shops?: Maybe<ShopListRelationFilter>;
 };
 
