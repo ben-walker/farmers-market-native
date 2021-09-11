@@ -90,6 +90,17 @@ export type DateTimeWithAggregatesFilter = {
   notIn?: Maybe<Array<Scalars['DateTime']>>;
 };
 
+export type FloatFilter = {
+  equals?: Maybe<Scalars['Float']>;
+  gt?: Maybe<Scalars['Float']>;
+  gte?: Maybe<Scalars['Float']>;
+  in?: Maybe<Array<Scalars['Float']>>;
+  lt?: Maybe<Scalars['Float']>;
+  lte?: Maybe<Scalars['Float']>;
+  not?: Maybe<NestedFloatFilter>;
+  notIn?: Maybe<Array<Scalars['Float']>>;
+};
+
 export type LogInInput = {
   email: Scalars['String'];
   password: Scalars['String'];
@@ -159,6 +170,17 @@ export type NestedDateTimeWithAggregatesFilter = {
   lte?: Maybe<Scalars['DateTime']>;
   not?: Maybe<NestedDateTimeWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['DateTime']>>;
+};
+
+export type NestedFloatFilter = {
+  equals?: Maybe<Scalars['Float']>;
+  gt?: Maybe<Scalars['Float']>;
+  gte?: Maybe<Scalars['Float']>;
+  in?: Maybe<Array<Scalars['Float']>>;
+  lt?: Maybe<Scalars['Float']>;
+  lte?: Maybe<Scalars['Float']>;
+  not?: Maybe<NestedFloatFilter>;
+  notIn?: Maybe<Array<Scalars['Float']>>;
 };
 
 export type NestedIntFilter = {
@@ -499,6 +521,7 @@ export enum QueryMode {
 export type Shop = {
   __typename?: 'Shop';
   _count?: Maybe<ShopCount>;
+  coordinates?: Maybe<ShopCoordinates>;
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   name: Scalars['String'];
@@ -515,6 +538,38 @@ export type ShopProductsArgs = {
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<ProductWhereInput>;
+};
+
+export type ShopCoordinates = {
+  __typename?: 'ShopCoordinates';
+  id: Scalars['String'];
+  latitude: Scalars['Float'];
+  longitude: Scalars['Float'];
+  shopId: Scalars['String'];
+};
+
+export type ShopCoordinatesOrderByWithRelationInput = {
+  id?: Maybe<SortOrder>;
+  latitude?: Maybe<SortOrder>;
+  longitude?: Maybe<SortOrder>;
+  shop?: Maybe<ShopOrderByWithRelationInput>;
+  shopId?: Maybe<SortOrder>;
+};
+
+export type ShopCoordinatesRelationFilter = {
+  is?: Maybe<ShopCoordinatesWhereInput>;
+  isNot?: Maybe<ShopCoordinatesWhereInput>;
+};
+
+export type ShopCoordinatesWhereInput = {
+  AND?: Maybe<Array<ShopCoordinatesWhereInput>>;
+  NOT?: Maybe<Array<ShopCoordinatesWhereInput>>;
+  OR?: Maybe<Array<ShopCoordinatesWhereInput>>;
+  id?: Maybe<StringFilter>;
+  latitude?: Maybe<FloatFilter>;
+  longitude?: Maybe<FloatFilter>;
+  shop?: Maybe<ShopRelationFilter>;
+  shopId?: Maybe<StringFilter>;
 };
 
 export type ShopCount = {
@@ -600,6 +655,7 @@ export type ShopOrderByWithAggregationInput = {
 };
 
 export type ShopOrderByWithRelationInput = {
+  coordinates?: Maybe<ShopCoordinatesOrderByWithRelationInput>;
   createdAt?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
@@ -634,6 +690,7 @@ export type ShopWhereInput = {
   AND?: Maybe<Array<ShopWhereInput>>;
   NOT?: Maybe<Array<ShopWhereInput>>;
   OR?: Maybe<Array<ShopWhereInput>>;
+  coordinates?: Maybe<ShopCoordinatesRelationFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   id?: Maybe<StringFilter>;
   name?: Maybe<StringFilter>;
