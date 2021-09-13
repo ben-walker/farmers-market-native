@@ -28,9 +28,11 @@ export type AggregateProduct = {
 
 export type AggregateShop = {
   __typename?: 'AggregateShop';
+  _avg?: Maybe<ShopAvgAggregate>;
   _count?: Maybe<ShopCountAggregate>;
   _max?: Maybe<ShopMaxAggregate>;
   _min?: Maybe<ShopMinAggregate>;
+  _sum?: Maybe<ShopSumAggregate>;
 };
 
 export type AggregateUser = {
@@ -99,6 +101,33 @@ export type FloatFilter = {
   lte?: Maybe<Scalars['Float']>;
   not?: Maybe<NestedFloatFilter>;
   notIn?: Maybe<Array<Scalars['Float']>>;
+};
+
+export type IntNullableFilter = {
+  equals?: Maybe<Scalars['Int']>;
+  gt?: Maybe<Scalars['Int']>;
+  gte?: Maybe<Scalars['Int']>;
+  in?: Maybe<Array<Scalars['Int']>>;
+  lt?: Maybe<Scalars['Int']>;
+  lte?: Maybe<Scalars['Int']>;
+  not?: Maybe<NestedIntNullableFilter>;
+  notIn?: Maybe<Array<Scalars['Int']>>;
+};
+
+export type IntNullableWithAggregatesFilter = {
+  _avg?: Maybe<NestedFloatNullableFilter>;
+  _count?: Maybe<NestedIntNullableFilter>;
+  _max?: Maybe<NestedIntNullableFilter>;
+  _min?: Maybe<NestedIntNullableFilter>;
+  _sum?: Maybe<NestedIntNullableFilter>;
+  equals?: Maybe<Scalars['Int']>;
+  gt?: Maybe<Scalars['Int']>;
+  gte?: Maybe<Scalars['Int']>;
+  in?: Maybe<Array<Scalars['Int']>>;
+  lt?: Maybe<Scalars['Int']>;
+  lte?: Maybe<Scalars['Int']>;
+  not?: Maybe<NestedIntNullableWithAggregatesFilter>;
+  notIn?: Maybe<Array<Scalars['Int']>>;
 };
 
 export type LogInInput = {
@@ -183,6 +212,17 @@ export type NestedFloatFilter = {
   notIn?: Maybe<Array<Scalars['Float']>>;
 };
 
+export type NestedFloatNullableFilter = {
+  equals?: Maybe<Scalars['Float']>;
+  gt?: Maybe<Scalars['Float']>;
+  gte?: Maybe<Scalars['Float']>;
+  in?: Maybe<Array<Scalars['Float']>>;
+  lt?: Maybe<Scalars['Float']>;
+  lte?: Maybe<Scalars['Float']>;
+  not?: Maybe<NestedFloatNullableFilter>;
+  notIn?: Maybe<Array<Scalars['Float']>>;
+};
+
 export type NestedIntFilter = {
   equals?: Maybe<Scalars['Int']>;
   gt?: Maybe<Scalars['Int']>;
@@ -202,6 +242,22 @@ export type NestedIntNullableFilter = {
   lt?: Maybe<Scalars['Int']>;
   lte?: Maybe<Scalars['Int']>;
   not?: Maybe<NestedIntNullableFilter>;
+  notIn?: Maybe<Array<Scalars['Int']>>;
+};
+
+export type NestedIntNullableWithAggregatesFilter = {
+  _avg?: Maybe<NestedFloatNullableFilter>;
+  _count?: Maybe<NestedIntNullableFilter>;
+  _max?: Maybe<NestedIntNullableFilter>;
+  _min?: Maybe<NestedIntNullableFilter>;
+  _sum?: Maybe<NestedIntNullableFilter>;
+  equals?: Maybe<Scalars['Int']>;
+  gt?: Maybe<Scalars['Int']>;
+  gte?: Maybe<Scalars['Int']>;
+  in?: Maybe<Array<Scalars['Int']>>;
+  lt?: Maybe<Scalars['Int']>;
+  lte?: Maybe<Scalars['Int']>;
+  not?: Maybe<NestedIntNullableWithAggregatesFilter>;
   notIn?: Maybe<Array<Scalars['Int']>>;
 };
 
@@ -376,6 +432,7 @@ export type Query = {
   product?: Maybe<Product>;
   products: Array<Product>;
   shop?: Maybe<Shop>;
+  shopSpatialSearch: Array<Shop>;
   shops: Array<Shop>;
   user?: Maybe<User>;
   users: Array<User>;
@@ -489,6 +546,12 @@ export type QueryShopArgs = {
 };
 
 
+export type QueryShopSpatialSearchArgs = {
+  latitude: Scalars['Float'];
+  longitude: Scalars['Float'];
+};
+
+
 export type QueryShopsArgs = {
   cursor?: Maybe<ShopWhereUniqueInput>;
   distinct?: Maybe<Array<ShopScalarFieldEnum>>;
@@ -528,6 +591,7 @@ export type Shop = {
   owner: User;
   ownerId: Scalars['String'];
   products: Array<Product>;
+  serveRadius?: Maybe<Scalars['Int']>;
 };
 
 
@@ -538,6 +602,15 @@ export type ShopProductsArgs = {
   skip?: Maybe<Scalars['Int']>;
   take?: Maybe<Scalars['Int']>;
   where?: Maybe<ProductWhereInput>;
+};
+
+export type ShopAvgAggregate = {
+  __typename?: 'ShopAvgAggregate';
+  serveRadius?: Maybe<Scalars['Float']>;
+};
+
+export type ShopAvgOrderByAggregateInput = {
+  serveRadius?: Maybe<SortOrder>;
 };
 
 export type ShopCoordinates = {
@@ -584,6 +657,7 @@ export type ShopCountAggregate = {
   id: Scalars['Int'];
   name: Scalars['Int'];
   ownerId: Scalars['Int'];
+  serveRadius: Scalars['Int'];
 };
 
 export type ShopCountOrderByAggregateInput = {
@@ -591,17 +665,21 @@ export type ShopCountOrderByAggregateInput = {
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
   ownerId?: Maybe<SortOrder>;
+  serveRadius?: Maybe<SortOrder>;
 };
 
 export type ShopGroupBy = {
   __typename?: 'ShopGroupBy';
+  _avg?: Maybe<ShopAvgAggregate>;
   _count?: Maybe<ShopCountAggregate>;
   _max?: Maybe<ShopMaxAggregate>;
   _min?: Maybe<ShopMinAggregate>;
+  _sum?: Maybe<ShopSumAggregate>;
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   name: Scalars['String'];
   ownerId: Scalars['String'];
+  serveRadius?: Maybe<Scalars['Int']>;
 };
 
 export type ShopListRelationFilter = {
@@ -616,6 +694,7 @@ export type ShopMaxAggregate = {
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   ownerId?: Maybe<Scalars['String']>;
+  serveRadius?: Maybe<Scalars['Int']>;
 };
 
 export type ShopMaxOrderByAggregateInput = {
@@ -623,6 +702,7 @@ export type ShopMaxOrderByAggregateInput = {
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
   ownerId?: Maybe<SortOrder>;
+  serveRadius?: Maybe<SortOrder>;
 };
 
 export type ShopMinAggregate = {
@@ -631,6 +711,7 @@ export type ShopMinAggregate = {
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   ownerId?: Maybe<Scalars['String']>;
+  serveRadius?: Maybe<Scalars['Int']>;
 };
 
 export type ShopMinOrderByAggregateInput = {
@@ -638,6 +719,7 @@ export type ShopMinOrderByAggregateInput = {
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
   ownerId?: Maybe<SortOrder>;
+  serveRadius?: Maybe<SortOrder>;
 };
 
 export type ShopOrderByRelationAggregateInput = {
@@ -645,13 +727,16 @@ export type ShopOrderByRelationAggregateInput = {
 };
 
 export type ShopOrderByWithAggregationInput = {
+  _avg?: Maybe<ShopAvgOrderByAggregateInput>;
   _count?: Maybe<ShopCountOrderByAggregateInput>;
   _max?: Maybe<ShopMaxOrderByAggregateInput>;
   _min?: Maybe<ShopMinOrderByAggregateInput>;
+  _sum?: Maybe<ShopSumOrderByAggregateInput>;
   createdAt?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
   ownerId?: Maybe<SortOrder>;
+  serveRadius?: Maybe<SortOrder>;
 };
 
 export type ShopOrderByWithRelationInput = {
@@ -662,6 +747,7 @@ export type ShopOrderByWithRelationInput = {
   owner?: Maybe<UserOrderByWithRelationInput>;
   ownerId?: Maybe<SortOrder>;
   products?: Maybe<ProductOrderByRelationAggregateInput>;
+  serveRadius?: Maybe<SortOrder>;
 };
 
 export type ShopRelationFilter = {
@@ -673,7 +759,8 @@ export enum ShopScalarFieldEnum {
   CreatedAt = 'createdAt',
   Id = 'id',
   Name = 'name',
-  OwnerId = 'ownerId'
+  OwnerId = 'ownerId',
+  ServeRadius = 'serveRadius'
 }
 
 export type ShopScalarWhereWithAggregatesInput = {
@@ -684,6 +771,16 @@ export type ShopScalarWhereWithAggregatesInput = {
   id?: Maybe<StringWithAggregatesFilter>;
   name?: Maybe<StringWithAggregatesFilter>;
   ownerId?: Maybe<StringWithAggregatesFilter>;
+  serveRadius?: Maybe<IntNullableWithAggregatesFilter>;
+};
+
+export type ShopSumAggregate = {
+  __typename?: 'ShopSumAggregate';
+  serveRadius?: Maybe<Scalars['Int']>;
+};
+
+export type ShopSumOrderByAggregateInput = {
+  serveRadius?: Maybe<SortOrder>;
 };
 
 export type ShopWhereInput = {
@@ -697,6 +794,7 @@ export type ShopWhereInput = {
   owner?: Maybe<UserRelationFilter>;
   ownerId?: Maybe<StringFilter>;
   products?: Maybe<ProductListRelationFilter>;
+  serveRadius?: Maybe<IntNullableFilter>;
 };
 
 export type ShopWhereUniqueInput = {
@@ -903,10 +1001,13 @@ export type UserWhereUniqueInput = {
   id?: Maybe<Scalars['String']>;
 };
 
-export type GetShopFeedQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetShopFeedQueryVariables = Exact<{
+  latitude: Scalars['Float'];
+  longitude: Scalars['Float'];
+}>;
 
 
-export type GetShopFeedQuery = { __typename?: 'Query', shops: Array<{ __typename?: 'Shop', createdAt: string, id: string, name: string }> };
+export type GetShopFeedQuery = { __typename?: 'Query', shopSpatialSearch: Array<{ __typename?: 'Shop', createdAt: string, id: string, name: string }> };
 
 export type GetShopQueryVariables = Exact<{
   shopWhere: ShopWhereUniqueInput;
@@ -917,8 +1018,8 @@ export type GetShopQuery = { __typename?: 'Query', shop?: Maybe<{ __typename?: '
 
 
 export const GetShopFeedDocument = gql`
-    query GetShopFeed {
-  shops {
+    query GetShopFeed($latitude: Float!, $longitude: Float!) {
+  shopSpatialSearch(latitude: $latitude, longitude: $longitude) {
     createdAt
     id
     name
@@ -938,10 +1039,12 @@ export const GetShopFeedDocument = gql`
  * @example
  * const { data, loading, error } = useGetShopFeedQuery({
  *   variables: {
+ *      latitude: // value for 'latitude'
+ *      longitude: // value for 'longitude'
  *   },
  * });
  */
-export function useGetShopFeedQuery(baseOptions?: Apollo.QueryHookOptions<GetShopFeedQuery, GetShopFeedQueryVariables>) {
+export function useGetShopFeedQuery(baseOptions: Apollo.QueryHookOptions<GetShopFeedQuery, GetShopFeedQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useQuery<GetShopFeedQuery, GetShopFeedQueryVariables>(GetShopFeedDocument, options);
       }

@@ -3,11 +3,12 @@ import { format } from "date-fns";
 import React, { useCallback, useMemo } from "react";
 import styled from "styled-components/native";
 
+import { Shop } from "../../graphql-codegen";
 import { Body } from "../components";
-import { BrowseStackNavigationProp, ShopFeedQueryItem } from "./types";
+import { BrowseStackNavigationProp } from "./types";
 
 type ShopFeedItemProps = {
-  shop: ShopFeedQueryItem;
+  shop: Shop;
 };
 
 const TouchableContainer = styled.TouchableOpacity`

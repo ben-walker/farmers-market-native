@@ -1,5 +1,5 @@
-query GetShopFeed {
-  shops {
+query GetShopFeed($latitude: Float!, $longitude: Float!) {
+  shopSpatialSearch(latitude: $latitude, longitude: $longitude) {
     createdAt
     id
     name
