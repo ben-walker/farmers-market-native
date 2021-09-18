@@ -3,29 +3,46 @@ import { FlatList, ListRenderItem } from "react-native";
 
 import { Shop, useGetShopFeedQuery } from "../../graphql-codegen";
 import { ScreenContainer } from "../components";
+import { SHOP_FEED_PAGE_SIZE } from "./constants";
 import { ShopFeedItem } from "./ShopFeedItem";
 
 export const ShopFeedScreen: React.FC = () => {
-  const { data, loading, refetch } = useGetShopFeedQuery({
-    variables: { latitude: 40.689266, longitude: -74.044512 }, // TODO: pull device coordinates
+  const { data, loading, refetch, fetchMore } = useGetShopFeedQuery({
+    variables: {
+      // TODO: pull device coordinates
+      latitude: 37.333757709349456,
+      longitude: -122.01067813108888,
+      take: SHOP_FEED_PAGE_SIZE,
+    },
   });
 
   const keyExtractor = (shop: Shop) => shop.id;
 
-  const onRefresh = () => refetch();
-
   const renderItem: ListRenderItem<Shop> = ({ item }) => (
     <ShopFeedItem shop={item} />
   );
+
+  const onEndReached = async () => {
+    await fetchMore({
+      variables: {
+        skip: 1,
+        cursor: {
+          id: data?.shopGetNearbyLocations.slice(-1)[0].id,
+        },
+      },
+    });
+  };
 
   return (
     <ScreenContainer>
       <FlatList
         data={data?.shopGetNearbyLocations as Shop[]}
         keyExtractor={keyExtractor}
-        onRefresh={onRefresh}
+        onRefresh={refetch}
         refreshing={loading}
         renderItem={renderItem}
+        onEndReached={onEndReached}
+        onEndReachedThreshold={0.5}
       />
     </ScreenContainer>
   );
