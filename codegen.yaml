@@ -21,3 +21,7 @@ generates:
   src/graphql-codegen/graphql.schema.json:
     plugins:
       - introspection
+
+  src/graphql-codegen/apollo-helpers.ts:
+    plugins:
+      - typescript-apollo-client-helpers
