@@ -432,7 +432,7 @@ export type Query = {
   product?: Maybe<Product>;
   products: Array<Product>;
   shop?: Maybe<Shop>;
-  shopSpatialSearch: Array<Shop>;
+  shopGetNearbyLocations: Array<Shop>;
   shops: Array<Shop>;
   user?: Maybe<User>;
   users: Array<User>;
@@ -546,9 +546,12 @@ export type QueryShopArgs = {
 };
 
 
-export type QueryShopSpatialSearchArgs = {
+export type QueryShopGetNearbyLocationsArgs = {
+  cursor?: Maybe<ShopWhereUniqueInput>;
   latitude: Scalars['Float'];
   longitude: Scalars['Float'];
+  skip?: Maybe<Scalars['Int']>;
+  take?: Maybe<Scalars['Int']>;
 };
 
 
@@ -1004,10 +1007,13 @@ export type UserWhereUniqueInput = {
 export type GetShopFeedQueryVariables = Exact<{
   latitude: Scalars['Float'];
   longitude: Scalars['Float'];
+  take?: Maybe<Scalars['Int']>;
+  skip?: Maybe<Scalars['Int']>;
+  cursor?: Maybe<ShopWhereUniqueInput>;
 }>;
 
 
-export type GetShopFeedQuery = { __typename?: 'Query', shopSpatialSearch: Array<{ __typename?: 'Shop', createdAt: string, id: string, name: string }> };
+export type GetShopFeedQuery = { __typename?: 'Query', shopGetNearbyLocations: Array<{ __typename?: 'Shop', createdAt: string, id: string, name: string }> };
 
 export type GetShopQueryVariables = Exact<{
   shopWhere: ShopWhereUniqueInput;
@@ -1018,8 +1024,14 @@ export type GetShopQuery = { __typename?: 'Query', shop?: Maybe<{ __typename?: '
 
 
 export const GetShopFeedDocument = gql`
-    query GetShopFeed($latitude: Float!, $longitude: Float!) {
-  shopSpatialSearch(latitude: $latitude, longitude: $longitude) {
+    query GetShopFeed($latitude: Float!, $longitude: Float!, $take: Int, $skip: Int, $cursor: ShopWhereUniqueInput) {
+  shopGetNearbyLocations(
+    latitude: $latitude
+    longitude: $longitude
+    take: $take
+    skip: $skip
+    cursor: $cursor
+  ) {
     createdAt
     id
     name
@@ -1041,6 +1053,9 @@ export const GetShopFeedDocument = gql`
  *   variables: {
  *      latitude: // value for 'latitude'
  *      longitude: // value for 'longitude'
+ *      take: // value for 'take'
+ *      skip: // value for 'skip'
+ *      cursor: // value for 'cursor'
  *   },
  * });
  */

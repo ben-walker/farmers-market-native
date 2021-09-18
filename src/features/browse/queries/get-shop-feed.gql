@@ -1,5 +1,17 @@
-query GetShopFeed($latitude: Float!, $longitude: Float!) {
-  shopSpatialSearch(latitude: $latitude, longitude: $longitude) {
+query GetShopFeed(
+  $latitude: Float!
+  $longitude: Float!
+  $take: Int
+  $skip: Int
+  $cursor: ShopWhereUniqueInput
+) {
+  shopGetNearbyLocations(
+    latitude: $latitude
+    longitude: $longitude
+    take: $take
+    skip: $skip
+    cursor: $cursor
+  ) {
     createdAt
     id
     name

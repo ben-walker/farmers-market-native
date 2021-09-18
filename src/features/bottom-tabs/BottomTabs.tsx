@@ -4,7 +4,7 @@ import React from "react";
 import { BrowseStack } from "../browse";
 import { ProfileStack } from "../profile";
 import { BottomTabsParamList } from "./types";
-import { getTabBarIcon } from "./utils/tab-icons";
+import { getTabBarIcon } from "./utils";
 
 const Tab = createBottomTabNavigator<BottomTabsParamList>();
 

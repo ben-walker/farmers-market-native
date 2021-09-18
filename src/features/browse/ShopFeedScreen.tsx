@@ -21,7 +21,7 @@ export const ShopFeedScreen: React.FC = () => {
   return (
     <ScreenContainer>
       <FlatList
-        data={data?.shopSpatialSearch as Shop[]}
+        data={data?.shopGetNearbyLocations as Shop[]}
         keyExtractor={keyExtractor}
         onRefresh={onRefresh}
         refreshing={loading}
