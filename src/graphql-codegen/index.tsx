@@ -1013,7 +1013,7 @@ export type GetShopFeedQueryVariables = Exact<{
 }>;
 
 
-export type GetShopFeedQuery = { __typename?: 'Query', shopGetNearbyLocations: Array<{ __typename?: 'Shop', createdAt: string, id: string, name: string }> };
+export type GetShopFeedQuery = { __typename?: 'Query', shopGetNearbyLocations: Array<{ __typename?: 'Shop', createdAt: string, id: string, name: string, _count?: Maybe<{ __typename?: 'ShopCount', products: number }> }> };
 
 export type GetShopQueryVariables = Exact<{
   shopWhere: ShopWhereUniqueInput;
@@ -1035,6 +1035,9 @@ export const GetShopFeedDocument = gql`
     createdAt
     id
     name
+    _count {
+      products
+    }
   }
 }
     `;

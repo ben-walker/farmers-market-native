@@ -15,5 +15,8 @@ query GetShopFeed(
     createdAt
     id
     name
+    _count {
+      products
+    }
   }
 }
