@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { FlatList, ListRenderItem } from "react-native";
 
 import { Shop, useGetShopFeedQuery } from "../../graphql-codegen";
@@ -16,10 +16,15 @@ export const ShopFeedScreen: React.FC = () => {
     },
   });
 
+  const cursorShopId = useMemo(
+    () => data?.shopGetNearbyLocations.slice(-1)[0].id,
+    [data?.shopGetNearbyLocations]
+  );
+
   const keyExtractor = (shop: Shop) => shop.id;
 
   const renderItem: ListRenderItem<Shop> = ({ item }) => (
-    <ShopFeedItem shop={item} />
+    <ShopFeedItem key={item.id} shop={item} />
   );
 
   const onEndReached = async () => {
@@ -27,7 +32,7 @@ export const ShopFeedScreen: React.FC = () => {
       variables: {
         skip: 1,
         cursor: {
-          id: data?.shopGetNearbyLocations.slice(-1)[0].id,
+          id: cursorShopId,
         },
       },
     });
