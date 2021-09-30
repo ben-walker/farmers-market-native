@@ -19,6 +19,13 @@ export type AggregateUserFieldPolicy = {
 	_max?: FieldPolicy<any> | FieldReadFunction<any>,
 	_min?: FieldPolicy<any> | FieldReadFunction<any>
 };
+export type CoordinatesKeySpecifier = ('id' | 'latitude' | 'longitude' | 'shopId' | CoordinatesKeySpecifier)[];
+export type CoordinatesFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	latitude?: FieldPolicy<any> | FieldReadFunction<any>,
+	longitude?: FieldPolicy<any> | FieldReadFunction<any>,
+	shopId?: FieldPolicy<any> | FieldReadFunction<any>
+};
 export type MutationKeySpecifier = ('logIn' | 'signUp' | MutationKeySpecifier)[];
 export type MutationFieldPolicy = {
 	logIn?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -98,13 +105,6 @@ export type ShopFieldPolicy = {
 export type ShopAvgAggregateKeySpecifier = ('serveRadius' | ShopAvgAggregateKeySpecifier)[];
 export type ShopAvgAggregateFieldPolicy = {
 	serveRadius?: FieldPolicy<any> | FieldReadFunction<any>
-};
-export type ShopCoordinatesKeySpecifier = ('id' | 'latitude' | 'longitude' | 'shopId' | ShopCoordinatesKeySpecifier)[];
-export type ShopCoordinatesFieldPolicy = {
-	id?: FieldPolicy<any> | FieldReadFunction<any>,
-	latitude?: FieldPolicy<any> | FieldReadFunction<any>,
-	longitude?: FieldPolicy<any> | FieldReadFunction<any>,
-	shopId?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type ShopCountKeySpecifier = ('products' | ShopCountKeySpecifier)[];
 export type ShopCountFieldPolicy = {
@@ -219,6 +219,10 @@ export type StrictTypedTypePolicies = {
 		keyFields?: false | AggregateUserKeySpecifier | (() => undefined | AggregateUserKeySpecifier),
 		fields?: AggregateUserFieldPolicy,
 	},
+	Coordinates?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CoordinatesKeySpecifier | (() => undefined | CoordinatesKeySpecifier),
+		fields?: CoordinatesFieldPolicy,
+	},
 	Mutation?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | MutationKeySpecifier | (() => undefined | MutationKeySpecifier),
 		fields?: MutationFieldPolicy,
@@ -254,10 +258,6 @@ export type StrictTypedTypePolicies = {
 	ShopAvgAggregate?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ShopAvgAggregateKeySpecifier | (() => undefined | ShopAvgAggregateKeySpecifier),
 		fields?: ShopAvgAggregateFieldPolicy,
-	},
-	ShopCoordinates?: Omit<TypePolicy, "fields" | "keyFields"> & {
-		keyFields?: false | ShopCoordinatesKeySpecifier | (() => undefined | ShopCoordinatesKeySpecifier),
-		fields?: ShopCoordinatesFieldPolicy,
 	},
 	ShopCount?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ShopCountKeySpecifier | (() => undefined | ShopCountKeySpecifier),

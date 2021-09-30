@@ -42,6 +42,38 @@ export type AggregateUser = {
   _min?: Maybe<UserMinAggregate>;
 };
 
+export type Coordinates = {
+  __typename?: 'Coordinates';
+  id: Scalars['String'];
+  latitude: Scalars['Float'];
+  longitude: Scalars['Float'];
+  shopId: Scalars['String'];
+};
+
+export type CoordinatesOrderByWithRelationInput = {
+  id?: Maybe<SortOrder>;
+  latitude?: Maybe<SortOrder>;
+  longitude?: Maybe<SortOrder>;
+  shop?: Maybe<ShopOrderByWithRelationInput>;
+  shopId?: Maybe<SortOrder>;
+};
+
+export type CoordinatesRelationFilter = {
+  is?: Maybe<CoordinatesWhereInput>;
+  isNot?: Maybe<CoordinatesWhereInput>;
+};
+
+export type CoordinatesWhereInput = {
+  AND?: Maybe<Array<CoordinatesWhereInput>>;
+  NOT?: Maybe<Array<CoordinatesWhereInput>>;
+  OR?: Maybe<Array<CoordinatesWhereInput>>;
+  id?: Maybe<StringFilter>;
+  latitude?: Maybe<FloatFilter>;
+  longitude?: Maybe<FloatFilter>;
+  shop?: Maybe<ShopRelationFilter>;
+  shopId?: Maybe<StringFilter>;
+};
+
 export type DateTimeFilter = {
   equals?: Maybe<Scalars['DateTime']>;
   gt?: Maybe<Scalars['DateTime']>;
@@ -587,7 +619,7 @@ export enum QueryMode {
 export type Shop = {
   __typename?: 'Shop';
   _count?: Maybe<ShopCount>;
-  coordinates?: Maybe<ShopCoordinates>;
+  coordinates?: Maybe<Coordinates>;
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   name: Scalars['String'];
@@ -614,38 +646,6 @@ export type ShopAvgAggregate = {
 
 export type ShopAvgOrderByAggregateInput = {
   serveRadius?: Maybe<SortOrder>;
-};
-
-export type ShopCoordinates = {
-  __typename?: 'ShopCoordinates';
-  id: Scalars['String'];
-  latitude: Scalars['Float'];
-  longitude: Scalars['Float'];
-  shopId: Scalars['String'];
-};
-
-export type ShopCoordinatesOrderByWithRelationInput = {
-  id?: Maybe<SortOrder>;
-  latitude?: Maybe<SortOrder>;
-  longitude?: Maybe<SortOrder>;
-  shop?: Maybe<ShopOrderByWithRelationInput>;
-  shopId?: Maybe<SortOrder>;
-};
-
-export type ShopCoordinatesRelationFilter = {
-  is?: Maybe<ShopCoordinatesWhereInput>;
-  isNot?: Maybe<ShopCoordinatesWhereInput>;
-};
-
-export type ShopCoordinatesWhereInput = {
-  AND?: Maybe<Array<ShopCoordinatesWhereInput>>;
-  NOT?: Maybe<Array<ShopCoordinatesWhereInput>>;
-  OR?: Maybe<Array<ShopCoordinatesWhereInput>>;
-  id?: Maybe<StringFilter>;
-  latitude?: Maybe<FloatFilter>;
-  longitude?: Maybe<FloatFilter>;
-  shop?: Maybe<ShopRelationFilter>;
-  shopId?: Maybe<StringFilter>;
 };
 
 export type ShopCount = {
@@ -743,7 +743,7 @@ export type ShopOrderByWithAggregationInput = {
 };
 
 export type ShopOrderByWithRelationInput = {
-  coordinates?: Maybe<ShopCoordinatesOrderByWithRelationInput>;
+  coordinates?: Maybe<CoordinatesOrderByWithRelationInput>;
   createdAt?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
@@ -790,7 +790,7 @@ export type ShopWhereInput = {
   AND?: Maybe<Array<ShopWhereInput>>;
   NOT?: Maybe<Array<ShopWhereInput>>;
   OR?: Maybe<Array<ShopWhereInput>>;
-  coordinates?: Maybe<ShopCoordinatesRelationFilter>;
+  coordinates?: Maybe<CoordinatesRelationFilter>;
   createdAt?: Maybe<DateTimeFilter>;
   id?: Maybe<StringFilter>;
   name?: Maybe<StringFilter>;
@@ -1013,14 +1013,14 @@ export type GetShopFeedQueryVariables = Exact<{
 }>;
 
 
-export type GetShopFeedQuery = { __typename?: 'Query', shopGetNearbyLocations: Array<{ __typename?: 'Shop', createdAt: string, id: string, name: string, _count?: Maybe<{ __typename?: 'ShopCount', products: number }> }> };
+export type GetShopFeedQuery = { __typename?: 'Query', shopGetNearbyLocations: Array<{ __typename?: 'Shop', createdAt: string, id: string, name: string, _count?: { __typename?: 'ShopCount', products: number } | null | undefined }> };
 
 export type GetShopQueryVariables = Exact<{
   shopWhere: ShopWhereUniqueInput;
 }>;
 
 
-export type GetShopQuery = { __typename?: 'Query', shop?: Maybe<{ __typename?: 'Shop', createdAt: string, id: string, name: string, owner: { __typename?: 'User', createdAt: string, fullName: string, id: string }, products: Array<{ __typename?: 'Product', createdAt: string, id: string, name: string }> }> };
+export type GetShopQuery = { __typename?: 'Query', shop?: { __typename?: 'Shop', createdAt: string, id: string, name: string, owner: { __typename?: 'User', createdAt: string, fullName: string, id: string }, products: Array<{ __typename?: 'Product', createdAt: string, id: string, name: string }> } | null | undefined };
 
 
 export const GetShopFeedDocument = gql`
