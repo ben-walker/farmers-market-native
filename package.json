@@ -22,7 +22,7 @@
   "dependencies": {
     "@apollo/client": "^3.4.10",
     "@react-navigation/bottom-tabs": "^6.0.5",
-    "@react-navigation/native": "^6.0.2",
+    "@react-navigation/native": "^6.0.5",
     "@react-navigation/native-stack": "^6.1.0",
     "date-fns": "^2.23.0",
     "expo": "~42.0.1",
