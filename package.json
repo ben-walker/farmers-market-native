@@ -48,7 +48,7 @@
     "@graphql-codegen/typescript-apollo-client-helpers": "^2.1.4",
     "@graphql-codegen/typescript-operations": "^2.1.1",
     "@graphql-codegen/typescript-react-apollo": "^3.1.1",
-    "@types/react": "~17.0.18",
+    "@types/react": "~17.0.34",
     "@types/react-native": "~0.65.0",
     "@types/styled-components": "^5.1.12",
     "@types/styled-components-react-native": "^5.1.1",
